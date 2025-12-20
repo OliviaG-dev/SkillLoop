@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# SkillLoop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Apprendre, pratiquer, progresser**
 
-Currently, two official plugins are available:
+SkillLoop est une application de formation conçue pour transformer l'apprentissage en un cycle continu de pratique et d'amélioration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Chaque formation est structurée en parcours clairs, découpés en sessions quotidiennes, avec des objectifs précis, des temps de pratique, et un suivi de progression mesurable.
 
-## React Compiler
+## 🎯 Concept
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+SkillLoop repose sur une idée simple : **les compétences se construisent par la répétition intentionnelle**.
 
-## Expanding the ESLint configuration
+L'objectif n'est pas de consommer du contenu, mais de pratiquer régulièrement, d'analyser ce qui est compris, d'identifier les blocages et de progresser durablement.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📅 Vue "Jour"
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Pour chaque jour de formation :
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- ✅ **Checklist des tâches prévues** avec suivi de progression
+- 📝 **Notes personnelles** pour capturer tes réflexions
+- 🔥 **"Ce que j'ai compris aujourd'hui"** pour consolider tes apprentissages
+- ❓ **"Ce qui reste flou"** pour identifier les points à revoir
+
+### 📊 Vue Progression
+
+- **% de complétion** globale de ta formation
+- **Streak actuel** - nombre de jours consécutifs complétés
+- **Meilleure série** - ton record personnel
+- Visualisation graphique de ta progression
+
+## 🚀 Technologies
+
+- **React 19** - Interface utilisateur moderne
+- **TypeScript** - Typage fort pour une meilleure maintenabilité
+- **Vite** - Build tool ultra-rapide
+- **LocalStorage** - Persistance des données localement
+
+## 📦 Installation
+
+```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+
+# Build pour la production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🏗️ Structure du projet
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/          # Composants React
+│   ├── TrainingDayView.tsx    # Vue journal du jour
+│   ├── ProgressView.tsx       # Vue progression
+│   └── *.css                  # Styles des composants
+├── hooks/
+│   └── useTrainingData.ts     # Hook de gestion des données
+├── types/
+│   └── index.ts               # Types TypeScript
+├── App.tsx                    # Composant principal
+└── main.tsx                   # Point d'entrée
+```
+
+## 🎨 Design
+
+Interface moderne avec :
+
+- Dégradés colorés pour une identité visuelle forte
+- Responsive design pour mobile et desktop
+- Animations fluides pour une meilleure UX
+- Accessibilité prise en compte
+
+## 📈 Roadmap
+
+### Version 1 (Actuelle)
+
+- ✅ Vue journal quotidien
+- ✅ Vue progression
+- ✅ Persistance locale (LocalStorage)
+
+### Version 2 (À venir)
+
+- [ ] Gestion de multiples formations
+- [ ] Export des données
+- [ ] Intégration avec un backend
+- [ ] Statistiques avancées
+
+### Version 3 (Futur)
+
+- [ ] Intégration avec assistant IA personnel
+- [ ] Recommandations automatiques
+- [ ] Partage de progression
+
+## 💡 Philosophie
+
+> **"Parce que la maîtrise est une boucle, pas un événement."**
+
+SkillLoop transforme la formation en un système d'entraînement, où la pratique régulière devient le moteur de la maîtrise.
+
+## 📝 License
+
+MIT
+
+---
+
+**SkillLoop** — Transformer la pratique en compétences

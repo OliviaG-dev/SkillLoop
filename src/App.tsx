@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { TrainingDayView } from './components/TrainingDayView/TrainingDayView';
+import { ProgressView } from './components/ProgressView/ProgressView';
+import { Home } from './pages/Home/Home';
+import { Dashboard } from './pages/Dashboard/Dashboard';
+import { useTrainingData } from './hooks/useTrainingData';
+import type { TrainingDay } from './types';
+import './App.css';
+
+type View = 'home' | 'dashboard' | 'day' | 'progress';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { currentDay, updateDay, progress, trainingDays, setCurrentDayIndex } = useTrainingData();
+  const [currentView, setCurrentView] = useState<View>('home');
+  const [selectedDay, setSelectedDay] = useState<TrainingDay | null>(currentDay || null);
+
+  const handleNavigate = (view: 'day' | 'progress' | 'dashboard') => {
+    setCurrentView(view);
+  };
+
+  const handleSelectDay = (day: TrainingDay) => {
+    const dayIndex = trainingDays.findIndex((d) => d.id === day.id);
+    if (dayIndex !== -1) {
+      setCurrentDayIndex(dayIndex);
+      setSelectedDay(day);
+    }
+  };
+
+  const dayToDisplay = selectedDay || currentDay;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Header currentView={currentView} onNavigate={setCurrentView} />
+
+      <main className="app-main">
+        {currentView === 'home' && <Home onNavigate={handleNavigate} />}
+        {currentView === 'dashboard' && (
+          <Dashboard
+            onNavigate={handleNavigate}
+            onSelectDay={handleSelectDay}
+          />
+        )}
+        {currentView === 'day' && dayToDisplay && (
+          <TrainingDayView trainingDay={dayToDisplay} onUpdate={updateDay} />
+        )}
+        {currentView === 'progress' && <ProgressView stats={progress} />}
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
