@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
-import { LoopOfTheDay } from "../../components/LoopLoopOfTheDay/LoopOfTheDay";
+import { LoopOfTheDay } from "../../components/LoopOfTheDay/LoopOfTheDay";
 import { BookIcon } from "../../components/Icons";
 import "./LoopDay.css";
 
@@ -9,7 +9,7 @@ type LoopDayProps = {
   onNavigate: (view: "home" | "dashboard") => void;
 };
 
-export const LoopDay: React.FC<LoopDayProps> = ({ dayNumber, onNavigate }) => {
+export const LoopDay: React.FC<LoopDayProps> = ({ dayNumber }) => {
   const program = useSkillLoopStore((s) => s.program);
 
   // Trouver la loop correspondant au jour
@@ -97,4 +97,3 @@ export const LoopDay: React.FC<LoopDayProps> = ({ dayNumber, onNavigate }) => {
     </div>
   );
 };
-

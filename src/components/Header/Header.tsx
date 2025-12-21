@@ -12,19 +12,23 @@ export function Header({ currentView, onNavigate }: HeaderProps) {
     <header className="app-header">
       <div className="header-content">
         <div
-          className="header-brand"
+          className="header-logo-container"
           onClick={() => onNavigate("home")}
           style={{ cursor: "pointer" }}
         >
           <img src={logo} alt="SkillLoop Logo" className="header-logo" />
-          <div className="header-text">
-            <h1 className="app-title">SkillLoop</h1>
-            <p className="app-tagline">Apprendre, pratiquer, progresser</p>
-          </div>
         </div>
-      </div>
-      {currentView !== "home" && (
+        <div className="header-title-container">
+          <h1 className="app-title">SkillLoop</h1>
+          <p className="app-tagline">Apprendre, pratiquer, progresser</p>
+        </div>
         <nav className="app-nav">
+          <button
+            className={`nav-button ${currentView === "home" ? "active" : ""}`}
+            onClick={() => onNavigate("home")}
+          >
+            Home
+          </button>
           <button
             className={`nav-button ${currentView === "dashboard" || currentView === "loopday" ? "active" : ""}`}
             onClick={() => onNavigate("dashboard")}
@@ -32,7 +36,7 @@ export function Header({ currentView, onNavigate }: HeaderProps) {
             <ChartIcon size={18} /> Dashboard
           </button>
         </nav>
-      )}
+      </div>
     </header>
   );
 }
