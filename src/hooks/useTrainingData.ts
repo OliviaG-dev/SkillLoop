@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import type { TrainingDay, ProgressStats } from '../types';
+import { useState, useEffect } from "react";
+import type { TrainingDay, ProgressStats } from "../types/progress";
 
-const STORAGE_KEY = 'skillloop-training-data';
+const STORAGE_KEY = "skillloop-training-data";
 
 export function useTrainingData() {
   const [trainingDays, setTrainingDays] = useState<TrainingDay[]>([]);
@@ -16,7 +16,7 @@ export function useTrainingData() {
         setTrainingDays(parsed.days || []);
         setCurrentDayIndex(parsed.currentDayIndex || 0);
       } catch (error) {
-        console.error('Erreur lors du chargement des données:', error);
+        console.error("Erreur lors du chargement des données:", error);
         initializeDemoData();
       }
     } else {
@@ -27,18 +27,30 @@ export function useTrainingData() {
   const initializeDemoData = () => {
     const demoDays: TrainingDay[] = [
       {
-        id: 'day-1',
+        id: "day-1",
         day: 1,
-        title: 'Introduction et premiers pas',
+        title: "Introduction et premiers pas",
         date: new Date().toISOString(),
         tasks: [
-          { id: 'task-1-1', label: 'Configurer l\'environnement de développement', done: false },
-          { id: 'task-1-2', label: 'Comprendre les bases du prompt engineering', done: false },
-          { id: 'task-1-3', label: 'Créer un premier assistant simple', done: false },
+          {
+            id: "task-1-1",
+            label: "Configurer l'environnement de développement",
+            done: false,
+          },
+          {
+            id: "task-1-2",
+            label: "Comprendre les bases du prompt engineering",
+            done: false,
+          },
+          {
+            id: "task-1-3",
+            label: "Créer un premier assistant simple",
+            done: false,
+          },
         ],
-        notes: '',
-        insights: '',
-        questions: '',
+        notes: "",
+        insights: "",
+        questions: "",
         completed: false,
       },
     ];
@@ -47,7 +59,10 @@ export function useTrainingData() {
   };
 
   const saveToStorage = (days: TrainingDay[], index: number) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ days, currentDayIndex: index }));
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ days, currentDayIndex: index })
+    );
   };
 
   const updateDay = (updatedDay: TrainingDay) => {
@@ -119,4 +134,3 @@ export function useTrainingData() {
     progress: calculateProgress(),
   };
 }
-

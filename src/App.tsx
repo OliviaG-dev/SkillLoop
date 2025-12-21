@@ -1,51 +1,41 @@
-import { useState } from 'react';
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
-import { TrainingDayView } from './components/TrainingDayView/TrainingDayView';
-import { ProgressView } from './components/ProgressView/ProgressView';
-import { Home } from './pages/Home/Home';
-import { Dashboard } from './pages/Dashboard/Dashboard';
-import { useTrainingData } from './hooks/useTrainingData';
-import type { TrainingDay } from './types';
-import './App.css';
+import { useState } from "react";
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
+import { Home } from "./pages/Home/Home";
+import { SkillLoopDashboard } from "./pages/Dashboard/SkillLoopDashboard";
+import { LoopDay } from "./pages/LoopDay/LoopDay";
+import "./App.css";
 
-type View = 'home' | 'dashboard' | 'day' | 'progress';
+type View = "home" | "dashboard" | "loopday";
 
 function App() {
-  const { currentDay, updateDay, progress, trainingDays, setCurrentDayIndex } = useTrainingData();
-  const [currentView, setCurrentView] = useState<View>('home');
-  const [selectedDay, setSelectedDay] = useState<TrainingDay | null>(currentDay || null);
+  const [currentView, setCurrentView] = useState<View>("home");
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
-  const handleNavigate = (view: 'day' | 'progress' | 'dashboard') => {
+  const handleNavigate = (view: "home" | "dashboard", dayNumber?: number) => {
     setCurrentView(view);
-  };
-
-  const handleSelectDay = (day: TrainingDay) => {
-    const dayIndex = trainingDays.findIndex((d) => d.id === day.id);
-    if (dayIndex !== -1) {
-      setCurrentDayIndex(dayIndex);
-      setSelectedDay(day);
+    if (dayNumber !== undefined) {
+      setSelectedDay(dayNumber);
     }
   };
 
-  const dayToDisplay = selectedDay || currentDay;
+  const handleNavigateToDay = (dayNumber: number) => {
+    setSelectedDay(dayNumber);
+    setCurrentView("loopday");
+  };
 
   return (
     <div className="app">
-      <Header currentView={currentView} onNavigate={setCurrentView} />
+      <Header currentView={currentView} onNavigate={handleNavigate} />
 
       <main className="app-main">
-        {currentView === 'home' && <Home onNavigate={handleNavigate} />}
-        {currentView === 'dashboard' && (
-          <Dashboard
-            onNavigate={handleNavigate}
-            onSelectDay={handleSelectDay}
-          />
+        {currentView === "home" && <Home onNavigate={handleNavigate} />}
+        {currentView === "dashboard" && (
+          <SkillLoopDashboard onNavigateToDay={handleNavigateToDay} />
         )}
-        {currentView === 'day' && dayToDisplay && (
-          <TrainingDayView trainingDay={dayToDisplay} onUpdate={updateDay} />
+        {currentView === "loopday" && selectedDay !== null && (
+          <LoopDay dayNumber={selectedDay} onNavigate={handleNavigate} />
         )}
-        {currentView === 'progress' && <ProgressView stats={progress} />}
       </main>
 
       <Footer />
