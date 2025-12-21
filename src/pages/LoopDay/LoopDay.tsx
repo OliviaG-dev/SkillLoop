@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
 import { LoopOfTheDay } from "../../components/LoopLoopOfTheDay/LoopOfTheDay";
+import { BookIcon } from "../../components/Icons";
 import "./LoopDay.css";
 
 type LoopDayProps = {
@@ -67,7 +68,10 @@ export const LoopDay: React.FC<LoopDayProps> = ({ dayNumber, onNavigate }) => {
       {allResources.length > 0 && (
         <section className="loop-day-resources-section">
           <div className="loop-day-resources-header">
-            <h2 className="loop-day-resources-title">Ressources disponibles</h2>
+            <h2 className="loop-day-resources-title">
+              <BookIcon size={24} />
+              Ressources disponibles
+            </h2>
             <span className="loop-day-resources-count">
               {allResources.length} ressource
               {allResources.length > 1 ? "s" : ""}

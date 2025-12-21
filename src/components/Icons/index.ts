@@ -11,4 +11,8 @@ export { RefreshIcon } from './RefreshIcon';
 export { ClockIcon } from './ClockIcon';
 export { ClipboardIcon } from './ClipboardIcon';
 export { QuestionIcon } from './QuestionIcon';
+export { SaveIcon } from './SaveIcon';
+export { CelebrationIcon } from './CelebrationIcon';
+export { SparkleIcon } from './SparkleIcon';
+export { BookIcon } from './BookIcon';
 
