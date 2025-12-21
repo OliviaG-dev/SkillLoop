@@ -173,6 +173,27 @@
   letter-spacing: 0.01em;
 }
 
+.home-stat-sublabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+.home-stat-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 127, 184, 0.1) 0%,
+    rgba(107, 155, 210, 0.1) 50%,
+    rgba(107, 199, 166, 0.1) 100%
+  );
+  border-color: var(--color-violet);
+}
+
+.home-stat-primary .home-stat-icon {
+  color: var(--color-violet);
+}
+
 .home-actions {
   display: flex;
   flex-direction: column;
@@ -398,6 +419,101 @@
   color: var(--color-green);
 }
 
+.home-progress-section {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.home-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.home-progress-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home-progress-percent {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-violet);
+}
+
+.home-progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: var(--bg-off-white);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.home-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-violet), var(--color-blue), var(--color-green));
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.home-progress-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+}
+
+.home-badges {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.home-badges-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.home-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.home-badge {
+  padding: 0.5rem 1rem;
+  background-color: #fbbf24;
+  color: #000;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 768px) {
   .home {
     padding: 2rem 1.5rem;
@@ -447,6 +563,228 @@
   .home-info-card {
     padding: 2rem;
   }
+}
+
+/* Aperçu de la loop actuelle */
+.home-current-loop {
+  margin: 2.5rem 0;
+}
+
+.home-current-loop-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.home-current-loop-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.home-current-loop-card {
+  padding: 1.5rem;
+  background: var(--bg-white);
+  border-radius: 16px;
+  border: 2px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.home-current-loop-card:hover {
+  border-color: var(--color-violet);
+  box-shadow: 0 4px 16px rgba(139, 127, 184, 0.15);
+  transform: translateY(-2px);
+}
+
+.home-current-loop-info {
+  margin-bottom: 1rem;
+}
+
+.home-current-loop-day {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-violet-light);
+  color: var(--color-violet);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.home-current-loop-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.home-current-loop-goal {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.home-current-loop-progress {
+  margin: 1rem 0;
+}
+
+.home-current-loop-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-off-white);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.home-current-loop-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-violet), var(--color-blue));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.home-current-loop-progress-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.home-current-loop-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-blue));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.home-current-loop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 127, 184, 0.3);
+}
+
+/* Aperçu de la loop actuelle */
+.home-current-loop {
+  margin: 2.5rem 0;
+}
+
+.home-current-loop-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.home-current-loop-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.home-current-loop-card {
+  padding: 1.5rem;
+  background: var(--bg-white);
+  border-radius: 16px;
+  border: 2px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.home-current-loop-card:hover {
+  border-color: var(--color-violet);
+  box-shadow: 0 4px 16px rgba(139, 127, 184, 0.15);
+  transform: translateY(-2px);
+}
+
+.home-current-loop-info {
+  margin-bottom: 1rem;
+}
+
+.home-current-loop-day {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-violet-light);
+  color: var(--color-violet);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.home-current-loop-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.home-current-loop-goal {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.home-current-loop-progress {
+  margin: 1rem 0;
+}
+
+.home-current-loop-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-off-white);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.home-current-loop-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-violet), var(--color-blue));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.home-current-loop-progress-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.home-current-loop-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-blue));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.home-current-loop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 127, 184, 0.3);
 }
 
 @media (max-width: 640px) {

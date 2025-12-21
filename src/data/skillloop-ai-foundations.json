@@ -1,0 +1,304 @@
+{
+  "id": "skillloop-ai-foundations",
+  "title": "Fondations IA & Intégration",
+  "description": "Construire un assistant IA fonctionnel avec streaming, backend propre et UX crédible",
+  "estimatedHoursPerLoop": 5,
+  "paths": [
+    {
+      "id": "path-ai-core",
+      "title": "Fondations IA",
+      "objective": "Comprendre, intégrer et produire un assistant IA stable",
+      "modules": [
+        {
+          "id": "chapter-1",
+          "title": "Comprendre les LLM & premiers appels API",
+          "loops": [
+            {
+              "id": "loop-1",
+              "day": 1,
+              "title": "Comment fonctionne un LLM",
+              "goal": "Comprendre tokens, génération et limites",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e1",
+                  "type": "read",
+                  "label": "Lire OpenAI – LLM Basics",
+                  "estimatedMinutes": 60,
+                  "xpReward": 20,
+                  "resources": [{ "type": "article", "label": "OpenAI Docs", "url": "https://platform.openai.com/docs" }]
+                },
+                {
+                  "id": "e2",
+                  "type": "read",
+                  "label": "Lire Anthropic – How LLMs Work",
+                  "estimatedMinutes": 60,
+                  "xpReward": 20,
+                  "resources": [{ "type": "article", "label": "Anthropic", "url": "https://www.anthropic.com" }]
+                },
+                {
+                  "id": "e3",
+                  "type": "practice",
+                  "label": "Créer un script Node.js appelant un LLM",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [{ "type": "doc", "label": "API Reference", "url": "https://platform.openai.com/docs/api-reference" }]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-2",
+              "day": 2,
+              "title": "Prompting structuré",
+              "goal": "Écrire des prompts comme du code",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e4",
+                  "type": "read",
+                  "label": "Lire Prompt Engineering Guide",
+                  "estimatedMinutes": 60,
+                  "xpReward": 20,
+                  "resources": [{ "type": "article", "label": "Prompt Guide", "url": "https://platform.openai.com/docs/guides/prompt-engineering" }]
+                },
+                {
+                  "id": "e5",
+                  "type": "practice",
+                  "label": "Créer un prompt structuré avec output JSON",
+                  "estimatedMinutes": 180,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-3",
+              "day": 3,
+              "title": "Coûts, tokens & limites",
+              "goal": "Mesurer l’impact économique des requêtes",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e6",
+                  "type": "read",
+                  "label": "Étudier pricing OpenAI / Mistral",
+                  "estimatedMinutes": 60,
+                  "xpReward": 20,
+                  "resources": []
+                },
+                {
+                  "id": "e7",
+                  "type": "practice",
+                  "label": "Logger tokens et calculer coût par requête",
+                  "estimatedMinutes": 180,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-4",
+              "day": 4,
+              "title": "API Node propre",
+              "goal": "Créer un backend IA structuré",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e8",
+                  "type": "practice",
+                  "label": "Créer endpoint /api/chat",
+                  "estimatedMinutes": 150,
+                  "xpReward": 60,
+                  "resources": []
+                },
+                {
+                  "id": "e9",
+                  "type": "practice",
+                  "label": "Séparer controller / service IA",
+                  "estimatedMinutes": 150,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-5",
+              "day": 5,
+              "title": "Mini intégration React",
+              "goal": "Connecter frontend et backend",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e10",
+                  "type": "practice",
+                  "label": "Créer UI React simple",
+                  "estimatedMinutes": 180,
+                  "xpReward": 60,
+                  "resources": []
+                },
+                {
+                  "id": "e11",
+                  "type": "practice",
+                  "label": "Gérer loading et erreurs",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+
+        {
+          "id": "chapter-2",
+          "title": "Streaming & UX IA",
+          "loops": [
+            {
+              "id": "loop-6",
+              "day": 6,
+              "title": "Streaming backend",
+              "goal": "Envoyer une réponse IA progressive",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e12",
+                  "type": "practice",
+                  "label": "Implémenter streaming serveur",
+                  "estimatedMinutes": 300,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-7",
+              "day": 7,
+              "title": "Streaming frontend",
+              "goal": "Afficher réponse token par token",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e13",
+                  "type": "practice",
+                  "label": "ReadableStream côté React",
+                  "estimatedMinutes": 300,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-8",
+              "day": 8,
+              "title": "UX conversationnelle",
+              "goal": "Rendre l’IA agréable à utiliser",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e14",
+                  "type": "practice",
+                  "label": "Désactiver input + bouton stop",
+                  "estimatedMinutes": 180,
+                  "xpReward": 60,
+                  "resources": []
+                },
+                {
+                  "id": "e15",
+                  "type": "practice",
+                  "label": "Auto-scroll et feedback UX",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-9",
+              "day": 9,
+              "title": "Gestion des erreurs IA",
+              "goal": "Stabiliser l’expérience utilisateur",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e16",
+                  "type": "practice",
+                  "label": "Messages d’erreur clairs",
+                  "estimatedMinutes": 180,
+                  "xpReward": 60,
+                  "resources": []
+                },
+                {
+                  "id": "e17",
+                  "type": "practice",
+                  "label": "Retry et timeout utilisateur",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+
+            {
+              "id": "loop-10",
+              "day": 10,
+              "title": "Refactor & stabilité",
+              "goal": "Nettoyer et solidifier le code",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e18",
+                  "type": "practice",
+                  "label": "Refactor global",
+                  "estimatedMinutes": 300,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+
+        {
+          "id": "chapter-3",
+          "title": "Architecture & produit",
+          "loops": [
+            { "id": "loop-11", "day": 11, "title": "Architecture backend", "goal": "Structurer pour évoluer", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e19", "type": "practice", "label": "Structurer services/controllers", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-12", "day": 12, "title": "Sécurité", "goal": "Protéger l’API", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e20", "type": "practice", "label": "Rate limiting & validation", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-13", "day": 13, "title": "Historique conversationnel", "goal": "Gérer le contexte", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e21", "type": "practice", "label": "Stocker et limiter historique", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-14", "day": 14, "title": "Prompt conversationnel", "goal": "Résumé et contexte long", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e22", "type": "practice", "label": "Prompt adaptatif avec résumé", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-15", "day": 15, "title": "Tests utilisateurs", "goal": "Valider les cas limites", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e23", "type": "practice", "label": "Tester prompts et longues conversations", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } }
+          ]
+        },
+
+        {
+          "id": "chapter-4",
+          "title": "Projet final",
+          "loops": [
+            { "id": "loop-16", "day": 16, "title": "UX polish", "goal": "Rendre le produit crédible", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e24", "type": "practice", "label": "Animations et loaders", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-17", "day": 17, "title": "Logs & observabilité", "goal": "Mesurer le comportement", "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e25", "type": "practice", "label": "Logs requêtes et erreurs", "estimatedMinutes": 300, "xpReward": 80, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-18", "day": 18, "title": "README produit", "goal": "Documenter clairement", "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e26", "type": "write", "label": "Rédiger README", "estimatedMinutes": 300, "xpReward": 60, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-19", "day": 19, "title": "Démo", "goal": "Présenter efficacement", "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 }, "exercises": [{ "id": "e27", "type": "practice", "label": "Préparer script de démo", "estimatedMinutes": 300, "xpReward": 60, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } },
+            { "id": "loop-20", "day": 20, "title": "Revue finale", "goal": "Finaliser et publier", "xpBonus": { "completion": 100, "fullCompletion": 50, "reflectionCompleted": 25 }, "exercises": [{ "id": "e28", "type": "practice", "label": "Nettoyage final & push GitHub", "estimatedMinutes": 300, "xpReward": 100, "resources": [] }], "debrief": { "notes": "", "insights": "", "questions": "" } }
+          ]
+        }
+      ]
+    }
+  ]
+}
