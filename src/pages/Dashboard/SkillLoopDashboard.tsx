@@ -1,15 +1,22 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
-import { LoopOfTheDay } from "../../components/LoopLoopOfTheDay/LoopOfTheDay";
 import {
   ChartIcon,
   TrophyIcon,
   TargetIcon,
   FlameIcon,
+  CheckIcon,
+  CalendarIcon,
 } from "../../components/Icons";
 import "./SkillLoopDashboard.css";
 
-export const SkillLoopDashboard: React.FC = () => {
+type SkillLoopDashboardProps = {
+  onNavigateToDay: (dayNumber: number) => void;
+};
+
+export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
+  onNavigateToDay,
+}) => {
   const program = useSkillLoopStore((s) => s.program);
   const totalXp = useSkillLoopStore((s) => s.totalXp);
 
@@ -50,14 +57,43 @@ export const SkillLoopDashboard: React.FC = () => {
 
   const loopsProgress = useSkillLoopStore((s) => s.loops);
 
-  const [currentLoopIndex, setCurrentLoopIndex] = useState(0);
+  // Organiser les loops par jour et calculer la progression
+  const daysData = useMemo(() => {
+    const daysMap = new Map<
+      number,
+      {
+        day: number;
+        loop: (typeof loops)[0];
+        progress: (typeof loopsProgress)[string] | undefined;
+        progressPercent: number;
+        isCompleted: boolean;
+        isInProgress: boolean;
+      }
+    >();
 
-  // S'assurer que l'index est valide
-  const validIndex =
-    loops.length > 0
-      ? Math.min(currentLoopIndex, Math.max(0, loops.length - 1))
-      : 0;
-  const loop = loops[validIndex];
+    loops.forEach((loop) => {
+      const progress = loopsProgress[loop.id];
+      const exercisesCompleted = progress?.completedExercises.length ?? 0;
+      const exercisesTotal = loop.exercises.length;
+      const progressPercent =
+        exercisesTotal > 0
+          ? Math.round((exercisesCompleted / exercisesTotal) * 100)
+          : 0;
+      const isCompleted = progress?.completed ?? false;
+      const isInProgress = exercisesCompleted > 0 && !isCompleted;
+
+      daysMap.set(loop.day, {
+        day: loop.day,
+        loop,
+        progress,
+        progressPercent,
+        isCompleted,
+        isInProgress,
+      });
+    });
+
+    return Array.from(daysMap.values()).sort((a, b) => a.day - b.day);
+  }, [loops, loopsProgress]);
 
   // Progression globale
   const globalProgress = useMemo(() => {
@@ -75,44 +111,6 @@ export const SkillLoopDashboard: React.FC = () => {
         : 0;
     return { totalExercises, completedExercises, globalProgressPercent };
   }, [loops, loopsProgress]);
-
-  const prevLoop = () => {
-    setCurrentLoopIndex((i) => Math.max(0, i - 1));
-  };
-
-  const nextLoop = () => {
-    setCurrentLoopIndex((i) => Math.min(loops.length - 1, i + 1));
-  };
-
-  // Récupérer toutes les ressources uniques
-  const allResources = useMemo(() => {
-    if (!loop) return [];
-    const resourcesMap = new Map<
-      string,
-      { label: string; url: string; type: string }
-    >();
-    loop.exercises.forEach((ex) => {
-      ex.resources.forEach((res) => {
-        const key = `${res.url}-${res.type}`;
-        if (!resourcesMap.has(key)) {
-          resourcesMap.set(key, {
-            label: res.label,
-            url: res.url,
-            type: res.type,
-          });
-        }
-      });
-    });
-    return Array.from(resourcesMap.values());
-  }, [loop]);
-
-  if (!loop) {
-    return (
-      <div className="skillloop-dashboard">
-        <p>Aucune loop disponible</p>
-      </div>
-    );
-  }
 
   return (
     <div className="skillloop-dashboard">
@@ -200,63 +198,57 @@ export const SkillLoopDashboard: React.FC = () => {
         </div>
       </header>
 
-      {/* NAVIGATION LOOPS */}
-      <nav className="dashboard-nav">
-        <button
-          className="nav-button nav-button-prev"
-          onClick={prevLoop}
-          disabled={validIndex === 0}
-          aria-label="Jour précédent"
-        >
-          <span className="nav-button-icon">←</span>
-          <span className="nav-button-text">Précédent</span>
-        </button>
-        <div className="nav-info">
-          <span className="nav-day-label">Jour</span>
-          <span className="nav-day-number">{loop.day}</span>
-          <span className="nav-day-total">/ {loops.length}</span>
+      {/* GRILLE DES JOURS */}
+      <section className="dashboard-days-section">
+        <div className="days-section-header">
+          <h2 className="days-section-title">
+            <CalendarIcon size={24} />
+            Tous les jours ({daysData.length})
+          </h2>
         </div>
-        <button
-          className="nav-button nav-button-next"
-          onClick={nextLoop}
-          disabled={validIndex === loops.length - 1}
-          aria-label="Jour suivant"
-        >
-          <span className="nav-button-text">Suivant</span>
-          <span className="nav-button-icon">→</span>
-        </button>
-      </nav>
-
-      {/* LOOP DU JOUR */}
-      <LoopOfTheDay loop={loop} />
-
-      {/* RESSOURCES */}
-      {allResources.length > 0 && (
-        <section className="resources-section">
-          <div className="resources-header">
-            <h2 className="resources-title">Ressources disponibles</h2>
-            <span className="resources-count">
-              {allResources.length} ressource
-              {allResources.length > 1 ? "s" : ""}
-            </span>
-          </div>
-          <div className="resources-grid">
-            {allResources.map((res, idx) => (
-              <a
-                key={`${res.url}-${idx}`}
-                href={res.url}
-                target="_blank"
-                rel="noreferrer"
-                className="resource-card"
-              >
-                <div className="resource-type-badge">{res.type}</div>
-                <div className="resource-label">{res.label}</div>
-                <div className="resource-arrow">→</div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
+        <div className="days-grid">
+          {daysData.map((dayData) => (
+            <button
+              key={dayData.day}
+              className={`day-card ${
+                dayData.isCompleted
+                  ? "day-completed"
+                  : dayData.isInProgress
+                    ? "day-in-progress"
+                    : "day-not-started"
+              }`}
+              onClick={() => onNavigateToDay(dayData.day)}
+            >
+              <div className="day-card-header">
+                <div className="day-card-number">
+                  <span className="day-number-label">Jour</span>
+                  <span className="day-number-value">{dayData.day}</span>
+                </div>
+                {dayData.isCompleted && (
+                  <div className="day-check-icon">
+                    <CheckIcon size={20} />
+                  </div>
+                )}
+              </div>
+              <div className="day-card-content">
+                <h3 className="day-card-title">{dayData.loop.title}</h3>
+                <p className="day-card-goal">{dayData.loop.goal}</p>
+              </div>
+              <div className="day-card-progress">
+                <div className="day-progress-bar-container">
+                  <div
+                    className="day-progress-bar-fill"
+                    style={{ width: `${dayData.progressPercent}%` }}
+                  />
+                </div>
+                <span className="day-progress-text">
+                  {dayData.progressPercent}%
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

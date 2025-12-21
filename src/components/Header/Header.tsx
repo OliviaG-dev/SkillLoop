@@ -3,7 +3,7 @@ import { ChartIcon } from "../Icons";
 import "./Header.css";
 
 type HeaderProps = {
-  currentView: "home" | "dashboard";
+  currentView: "home" | "dashboard" | "loopday";
   onNavigate: (view: "home" | "dashboard") => void;
 };
 
@@ -26,7 +26,7 @@ export function Header({ currentView, onNavigate }: HeaderProps) {
       {currentView !== "home" && (
         <nav className="app-nav">
           <button
-            className={`nav-button ${currentView === "dashboard" ? "active" : ""}`}
+            className={`nav-button ${currentView === "dashboard" || currentView === "loopday" ? "active" : ""}`}
             onClick={() => onNavigate("dashboard")}
           >
             <ChartIcon size={18} /> Dashboard
