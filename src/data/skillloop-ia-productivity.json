@@ -1,0 +1,350 @@
+{
+    "id": "skillloop-ia-productivity",
+    "title": "IA & Productivité personnelle",
+    "description": "Utiliser l’IA comme assistant personnel quotidien pour gérer tâches, emails, résumés et planification.",
+    "estimatedHoursPerLoop": 2,
+    "paths": [
+      {
+        "id": "path-ia-productivity-core",
+        "title": "Fondations IA & Productivité",
+        "objective": "Maîtriser l’IA pour optimiser organisation, apprentissage et communication",
+        "modules": [
+          {
+            "id": "chapter-1",
+            "title": "IA comme second cerveau",
+            "loops": [
+              {
+                "id": "loop-1",
+                "day": 1,
+                "title": "Découvrir votre assistant IA",
+                "goal": "Comprendre comment l’IA peut devenir votre second cerveau",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e1",
+                    "type": "read",
+                    "label": "Article : IA personnelle et productivité",
+                    "estimatedMinutes": 30,
+                    "xpReward": 20,
+                    "resources": [
+                      { "type": "article", "label": "Notion AI – Guide complet", "url": "https://www.notion.so/product/ai" },
+                      { "type": "article", "label": "Zapier AI – Utiliser IA pour workflow", "url": "https://zapier.com/blog/ai-workflows/" }
+                    ]
+                  },
+                  {
+                    "id": "e2",
+                    "type": "practice",
+                    "label": "Lister 5 tâches quotidiennes que l’IA peut automatiser",
+                    "estimatedMinutes": 60,
+                    "xpReward": 40,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-2",
+                "day": 2,
+                "title": "Organisation & priorités",
+                "goal": "Appliquer l’IA pour gérer priorités et tâches",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e3",
+                    "type": "watch",
+                    "label": "Vidéo : Gestion du temps avec IA",
+                    "estimatedMinutes": 30,
+                    "xpReward": 20,
+                    "resources": [
+                      { "type": "video", "label": "Thomas Frank – AI Productivity Tips", "url": "https://www.youtube.com/watch?v=3iPz_8-kpNU" }
+                    ]
+                  },
+                  {
+                    "id": "e4",
+                    "type": "practice",
+                    "label": "Créer un planning IA pour la semaine",
+                    "estimatedMinutes": 60,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "Notion AI – Planner", "url": "https://www.notion.so/product/ai" },
+                      { "type": "tool", "label": "Trello + Butler AI", "url": "https://trello.com" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+          {
+            "id": "chapter-2",
+            "title": "Emails & communication",
+            "loops": [
+              {
+                "id": "loop-3",
+                "day": 3,
+                "title": "Rédiger des emails intelligents",
+                "goal": "Automatiser réponses et brouillons",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e5",
+                    "type": "read",
+                    "label": "Article : IA pour emails",
+                    "estimatedMinutes": 30,
+                    "xpReward": 20,
+                    "resources": [
+                      { "type": "article", "label": "Superhuman AI Email", "url": "https://superhuman.com/ai" }
+                    ]
+                  },
+                  {
+                    "id": "e6",
+                    "type": "practice",
+                    "label": "Créer 5 templates d’emails automatiques",
+                    "estimatedMinutes": 60,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "ChatGPT – Email Assistant", "url": "https://chat.openai.com" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-4",
+                "day": 4,
+                "title": "Résumé & notes automatiques",
+                "goal": "Transformer lectures et réunions en notes exploitables",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e7",
+                    "type": "practice",
+                    "label": "Transformer un article ou une réunion en résumé IA",
+                    "estimatedMinutes": 90,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "Notion AI – Résumés", "url": "https://www.notion.so/product/ai" },
+                      { "type": "tool", "label": "Mem AI", "url": "https://mem.ai" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+          {
+            "id": "chapter-3",
+            "title": "Apprentissage & coaching personnel",
+            "loops": [
+              {
+                "id": "loop-5",
+                "day": 5,
+                "title": "IA pour apprentissage accéléré",
+                "goal": "Résumé de cours et génération de quiz",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e8",
+                    "type": "practice",
+                    "label": "Créer quiz à partir d’un article ou cours",
+                    "estimatedMinutes": 60,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "ChatGPT – Quiz Generator", "url": "https://chat.openai.com" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-6",
+                "day": 6,
+                "title": "IA comme coach personnel",
+                "goal": "Obtenir conseils personnalisés et suivi",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e9",
+                    "type": "practice",
+                    "label": "Simuler séance coaching IA pour objectifs",
+                    "estimatedMinutes": 60,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "Replika / ChatGPT", "url": "https://replika.ai" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+          {
+            "id": "chapter-4",
+            "title": "Système personnel IA",
+            "loops": [
+              {
+                "id": "loop-7",
+                "day": 7,
+                "title": "Automatisation des tâches répétitives",
+                "goal": "Créer des workflows personnels IA",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e10",
+                    "type": "practice",
+                    "label": "Automatiser une tâche journalière",
+                    "estimatedMinutes": 90,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "Zapier + AI", "url": "https://zapier.com/blog/ai-workflows/" },
+                      { "type": "tool", "label": "Make.com AI", "url": "https://www.make.com/en" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-8",
+                "day": 8,
+                "title": "Planification avancée",
+                "goal": "Prévoir agenda et priorités avec IA",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e11",
+                    "type": "practice",
+                    "label": "Créer planification hebdo IA",
+                    "estimatedMinutes": 90,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "Notion AI – Calendar", "url": "https://www.notion.so/product/ai" },
+                      { "type": "tool", "label": "Google Calendar + AI", "url": "https://calendar.google.com" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+          {
+            "id": "chapter-5",
+            "title": "Projet final : setup productivité IA",
+            "loops": [
+              {
+                "id": "loop-9",
+                "day": 9,
+                "title": "Création système personnel IA",
+                "goal": "Rassembler tous les éléments appris",
+                "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e12",
+                    "type": "practice",
+                    "label": "Créer votre setup IA productivité complet",
+                    "estimatedMinutes": 120,
+                    "xpReward": 80,
+                    "resources": [
+                      { "type": "tool", "label": "Notion AI / Zapier / ChatGPT", "url": "https://www.notion.so/product/ai" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-10",
+                "day": 10,
+                "title": "Optimisation workflow",
+                "goal": "Rendre le système efficace et simple",
+                "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e13",
+                    "type": "practice",
+                    "label": "Tester et améliorer workflow IA",
+                    "estimatedMinutes": 120,
+                    "xpReward": 80,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-11",
+                "day": 11,
+                "title": "Tests réels",
+                "goal": "Valider usage quotidien",
+                "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e14",
+                    "type": "practice",
+                    "label": "Appliquer workflow sur 3 jours",
+                    "estimatedMinutes": 90,
+                    "xpReward": 60,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-12",
+                "day": 12,
+                "title": "Documentation & réutilisabilité",
+                "goal": "Rendre votre setup exportable et réutilisable",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e15",
+                    "type": "write",
+                    "label": "Documenter prompts, workflows et routines",
+                    "estimatedMinutes": 90,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Prompt Engineering Checklist", "url": "https://www.promptingguide.ai/guides/best-practices" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-13",
+                "day": 13,
+                "title": "Démo & feedback",
+                "goal": "Partager et tester avec amis/communauté",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e16",
+                    "type": "practice",
+                    "label": "Présenter votre système à un tiers et recueillir feedback",
+                    "estimatedMinutes": 90,
+                    "xpReward": 60,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+              {
+                "id": "loop-14",
+                "day": 14,
+                "title": "Revue finale & perfectionnement",
+                "goal": "Finaliser et mettre en place routine durable",
+                "xpBonus": { "completion": 100, "fullCompletion": 50, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e17",
+                    "type": "practice",
+                    "label": "Finaliser setup, tester et mettre en place routine quotidienne",
+                    "estimatedMinutes": 120,
+                    "xpReward": 100,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

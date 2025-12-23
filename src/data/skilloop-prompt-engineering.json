@@ -1,0 +1,600 @@
+{
+  "id": "skillloop-prompt-engineering",
+  "title": "Prompt Engineering & Maîtrise IA",
+  "description": "Apprendre à écrire des prompts clairs, puissants et réutilisables pour exploiter pleinement les IA",
+  "estimatedHoursPerLoop": 2,
+  "paths": [
+    {
+      "id": "path-prompt-core",
+      "title": "Fondations du Prompt Engineering",
+      "objective": "Comprendre comment communiquer efficacement avec une IA",
+      "modules": [
+        {
+          "id": "chapter-1",
+          "title": "Bases & compréhension des LLM",
+          "loops": [
+            {
+              "id": "loop-1",
+              "day": 1,
+              "title": "Comment pense une IA",
+              "goal": "Comprendre tokens, prédiction et limites",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e1",
+                  "type": "read",
+                  "label": "Lire : Introduction aux LLM",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Engineering Guide – LLM Basics", "url": "https://www.promptingguide.ai/introduction" }
+                  ]
+                },
+                {
+                  "id": "e2",
+                  "type": "watch",
+                  "label": "Vidéo : How Large Language Models Work",
+                  "estimatedMinutes": 30,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "video", "label": "DeepLearning.AI (YouTube)", "url": "https://www.youtube.com/watch?v=5sLYAQS9sWQ" }
+                  ]
+                },
+                {
+                  "id": "e3",
+                  "type": "practice",
+                  "label": "Tester 5 formulations différentes d’une même question",
+                  "estimatedMinutes": 45,
+                  "xpReward": 40,
+                  "resources": [
+                    { "type": "tool", "label": "ChatGPT", "url": "https://chat.openai.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-2",
+              "day": 2,
+              "title": "Pourquoi les prompts échouent",
+              "goal": "Identifier les erreurs courantes",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e4",
+                  "type": "read",
+                  "label": "Lire : Common Prompting Mistakes",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Prompting Guide – Pitfalls", "url": "https://www.promptingguide.ai/guides/prompt-pitfalls" }
+                  ]
+                },
+                {
+                  "id": "e5",
+                  "type": "practice",
+                  "label": "Corriger 10 prompts vagues",
+                  "estimatedMinutes": 75,
+                  "xpReward": 40,
+                  "resources": [
+                    { "type": "tool", "label": "Notion / Google Docs", "url": "https://www.notion.so" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-3",
+              "day": 3,
+              "title": "Structure d’un bon prompt",
+              "goal": "Écrire un prompt clair et cadré",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e6",
+                  "type": "read",
+                  "label": "Lire : Prompt Structure & Formatting",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "OpenAI – Prompt Engineering", "url": "https://platform.openai.com/docs/guides/prompt-engineering" }
+                  ]
+                },
+                {
+                  "id": "e7",
+                  "type": "practice",
+                  "label": "Créer un prompt structuré avec contraintes",
+                  "estimatedMinutes": 75,
+                  "xpReward": 40,
+                  "resources": [
+                    { "type": "tool", "label": "ChatGPT", "url": "https://chat.openai.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-4",
+              "day": 4,
+              "title": "Rôle & persona de l’IA",
+              "goal": "Guider l’IA avec un rôle précis",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e8",
+                  "type": "read",
+                  "label": "Lire : Role Prompting",
+                  "estimatedMinutes": 30,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Anthropic – Prompt Design", "url": "https://docs.anthropic.com/claude/docs/introduction-to-prompt-design" }
+                  ]
+                },
+                {
+                  "id": "e9",
+                  "type": "practice",
+                  "label": "Tester 5 rôles IA sur une même tâche",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "tool", "label": "ChatGPT / Claude", "url": "https://claude.ai" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-5",
+              "day": 5,
+              "title": "Contraintes & formats",
+              "goal": "Contrôler la sortie de l’IA",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e10",
+                  "type": "practice",
+                  "label": "Forcer format, longueur et style (tableau, JSON, liste)",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Structured Outputs – OpenAI", "url": "https://platform.openai.com/docs/guides/structured-outputs" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-2",
+          "title": "Prompting avancé & raisonnement",
+          "loops": [
+            {
+              "id": "loop-6",
+              "day": 6,
+              "title": "Exemples & few-shot prompting",
+              "goal": "Améliorer la précision avec des exemples",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e11",
+                  "type": "read",
+                  "label": "Lire : Few-shot prompting",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Prompting Guide – Few Shot", "url": "https://www.promptingguide.ai/techniques/few-shot" },
+                    { "type": "article", "label": "OpenAI – Prompt Examples", "url": "https://platform.openai.com/docs/examples" }
+                  ]
+                },
+                {
+                  "id": "e12",
+                  "type": "practice",
+                  "label": "Créer un prompt avec 3 exemples",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-7",
+              "day": 7,
+              "title": "Chain of Thought",
+              "goal": "Améliorer le raisonnement de l’IA",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e13",
+                  "type": "read",
+                  "label": "Lire : Chain-of-Thought",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Chain of Thought Explained", "url": "https://www.promptingguide.ai/techniques/chain-of-thought" },
+                    { "type": "video", "label": "DeepLearning.AI – Reasoning with LLMs", "url": "https://www.youtube.com/watch?v=YHCSs6U8xqA" }
+                  ]
+                },
+                {
+                  "id": "e14",
+                  "type": "practice",
+                  "label": "Comparer réponses avec et sans raisonnement",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-3",
+          "title": "Prompts complexes & robustes",
+          "loops": [
+            {
+              "id": "loop-8",
+              "day": 8,
+              "title": "Décomposition de tâches",
+              "goal": "Faire raisonner l’IA étape par étape",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e15",
+                  "type": "practice",
+                  "label": "Transformer une tâche complexe en sous-tâches",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Task Decomposition", "url": "https://www.promptingguide.ai/techniques/task-decomposition" },
+                    { "type": "tool", "label": "ChatGPT", "url": "https://chat.openai.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-9",
+              "day": 9,
+              "title": "Auto-critique & itération",
+              "goal": "Améliorer les réponses automatiquement",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e16",
+                  "type": "practice",
+                  "label": "Créer un prompt avec phase de critique",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Self-Refine Prompting", "url": "https://www.promptingguide.ai/techniques/self-refine" },
+                    { "type": "article", "label": "Reflexion Paper (Google)", "url": "https://arxiv.org/abs/2303.11366" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-4",
+          "title": "Prompts professionnels & systèmes",
+          "loops": [
+            {
+              "id": "loop-10",
+              "day": 10,
+              "title": "Prompts business",
+              "goal": "Créer des prompts orientés résultats",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e17",
+                  "type": "practice",
+                  "label": "Créer un prompt pour email, rapport et analyse",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "AI for Business Prompts", "url": "https://www.notion.so/templates/ai-prompts" },
+                    { "type": "tool", "label": "Notion AI", "url": "https://www.notion.so/product/ai" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-11",
+              "day": 11,
+              "title": "Prompts créatifs",
+              "goal": "Générer idées et storytelling",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e18",
+                  "type": "practice",
+                  "label": "Créer prompts storytelling et contenu",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Creative Prompting", "url": "https://www.promptingguide.ai/applications/creative-writing" },
+                    { "type": "tool", "label": "Claude", "url": "https://claude.ai" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-12",
+              "day": 12,
+              "title": "Prompt templates",
+              "goal": "Créer des prompts réutilisables",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e19",
+                  "type": "practice",
+                  "label": "Créer 5 templates de prompts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Templates", "url": "https://www.promptingguide.ai/guides/prompt-templates" },
+                    { "type": "tool", "label": "Google Docs", "url": "https://docs.google.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-13",
+              "day": 13,
+              "title": "Prompts conversationnels",
+              "goal": "Maintenir cohérence et contexte",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e20",
+                  "type": "practice",
+                  "label": "Créer un prompt multi-tours",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Conversation Prompting", "url": "https://www.promptingguide.ai/techniques/contextual-prompting" },
+                    { "type": "article", "label": "Anthropic – Long Context", "url": "https://docs.anthropic.com/claude/docs/context-windows" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-5",
+          "title": "Projet final – Maîtrise du Prompt Engineering",
+          "loops": [
+            {
+              "id": "loop-14",
+              "day": 14,
+              "title": "Choix du cas réel",
+              "goal": "Définir un besoin concret",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e21",
+                  "type": "practice",
+                  "label": "Définir problème + objectif",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Designing Prompt Systems", "url": "https://www.promptingguide.ai/guides/prompt-design" },
+                    { "type": "tool", "label": "Notion", "url": "https://www.notion.so" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-15",
+              "day": 15,
+              "title": "Architecture de prompts",
+              "goal": "Structurer un système",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e22",
+                  "type": "practice",
+                  "label": "Créer architecture complète",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Designing Prompt Systems", "url": "https://www.promptingguide.ai/guides/prompt-design" },
+                    { "type": "tool", "label": "Notion", "url": "https://www.notion.so" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-16",
+              "day": 16,
+              "title": "Tests & itérations",
+              "goal": "Améliorer la fiabilité",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e23",
+                  "type": "practice",
+                  "label": "Tester 10 scénarios",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Robustness", "url": "https://www.promptingguide.ai/guides/prompt-robustness" },
+                    { "type": "article", "label": "OpenAI – Safety Best Practices", "url": "https://platform.openai.com/docs/guides/safety-best-practices" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-17",
+              "day": 17,
+              "title": "Optimisation qualité",
+              "goal": "Améliorer précision et style",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e24",
+                  "type": "practice",
+                  "label": "Affiner prompts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Evaluating LLM Outputs", "url": "https://www.promptingguide.ai/guides/evaluation" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-18",
+              "day": 18,
+              "title": "Robustesse & erreurs",
+              "goal": "Gérer les cas limites",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e25",
+                  "type": "practice",
+                  "label": "Gérer prompts défaillants",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Robustness", "url": "https://www.promptingguide.ai/guides/prompt-robustness" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-19",
+              "day": 19,
+              "title": "Documentation prompts",
+              "goal": "Rendre réutilisable",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e26",
+                  "type": "write",
+                  "label": "Documenter prompts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Documentation", "url": "https://www.promptingguide.ai/guides/documenting-prompts" },
+                    { "type": "tool", "label": "GitHub", "url": "https://github.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-20",
+              "day": 20,
+              "title": "Tests utilisateurs",
+              "goal": "Valider usage réel",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e27",
+                  "type": "practice",
+                  "label": "Faire tester prompts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-21",
+              "day": 21,
+              "title": "Améliorations finales",
+              "goal": "Finaliser système",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e28",
+                  "type": "practice",
+                  "label": "Optimisation finale",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-22",
+              "day": 22,
+              "title": "Packaging",
+              "goal": "Présenter clairement",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e29",
+                  "type": "practice",
+                  "label": "Créer pack de prompts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "article", "label": "Productizing AI Prompts", "url": "https://www.lennysnewsletter.com/p/ai-products" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-23",
+              "day": 23,
+              "title": "Démo",
+              "goal": "Présenter efficacement",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e30",
+                  "type": "practice",
+                  "label": "Préparer démo",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": [
+                    { "type": "video", "label": "How to Demo AI Products", "url": "https://www.youtube.com/watch?v=Y4X0xQz6v8Q" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-24",
+              "day": 24,
+              "title": "Revue finale",
+              "goal": "Valider la maîtrise complète",
+              "xpBonus": { "completion": 100, "fullCompletion": 50, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e31",
+                  "type": "practice",
+                  "label": "Revue complète & livraison",
+                  "estimatedMinutes": 120,
+                  "xpReward": 100,
+                  "resources": [
+                    { "type": "article", "label": "Prompt Engineering Checklist", "url": "https://www.promptingguide.ai/guides/best-practices" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

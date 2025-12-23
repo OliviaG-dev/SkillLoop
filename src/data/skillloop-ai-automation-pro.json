@@ -1,0 +1,591 @@
+{
+  "id": "skillloop-ai-automation-pro",
+  "title": "Automatisation avec l’IA pour les pros",
+  "description": "Automatiser des tâches métiers concrètes avec l’IA, des prompts jusqu’aux workflows complets",
+  "estimatedHoursPerLoop": 2,
+  "paths": [
+    {
+      "id": "path-ai-automation",
+      "title": "IA & Automatisation métier",
+      "objective": "Construire des automatisations IA fiables, mesurables et utiles",
+      "modules": [
+        {
+          "id": "chapter-1",
+          "title": "Fondations IA pour l’automatisation",
+          "loops": [
+            {
+              "id": "loop-1",
+              "day": 1,
+              "title": "Comprendre l’IA comme moteur d’automatisation",
+              "goal": "Comprendre ce que l’IA peut automatiser (et ce qu’elle ne doit pas)",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e1",
+                  "type": "read",
+                  "label": "Lire : What LLMs are good at (and bad at)",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Prompting Guide", "url": "https://www.promptingguide.ai/introduction" }
+                  ]
+                },
+                {
+                  "id": "e2",
+                  "type": "practice",
+                  "label": "Lister 10 tâches personnelles ou pro automatisables",
+                  "estimatedMinutes": 75,
+                  "xpReward": 40,
+                  "resources": [
+                    { "type": "tool", "label": "Notion", "url": "https://www.notion.so" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-2",
+              "day": 2,
+              "title": "Prompts orientés action",
+              "goal": "Écrire des prompts exploitables par des workflows",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e3",
+                  "type": "read",
+                  "label": "Lire : Prompt Engineering (structured outputs)",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "OpenAI – Structured Outputs", "url": "https://platform.openai.com/docs/guides/structured-outputs" }
+                  ]
+                },
+                {
+                  "id": "e4",
+                  "type": "practice",
+                  "label": "Créer un prompt avec sortie JSON exploitable",
+                  "estimatedMinutes": 75,
+                  "xpReward": 40,
+                  "resources": [
+                    { "type": "tool", "label": "ChatGPT", "url": "https://chat.openai.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-3",
+              "day": 3,
+              "title": "Fiabilité & contrôle qualité",
+              "goal": "Limiter hallucinations et erreurs",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e5",
+                  "type": "read",
+                  "label": "Lire : Reducing hallucinations",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Anthropic – Prompt Design", "url": "https://docs.anthropic.com/claude/docs/introduction-to-prompt-design" }
+                  ]
+                },
+                {
+                  "id": "e6",
+                  "type": "practice",
+                  "label": "Ajouter contraintes + vérifications à un prompt",
+                  "estimatedMinutes": 75,
+                  "xpReward": 40,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-2",
+          "title": "Automatisations simples",
+          "loops": [
+            {
+              "id": "loop-4",
+              "day": 4,
+              "title": "Emails automatisés avec IA",
+              "goal": "Générer et envoyer des emails automatiquement",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e7",
+                  "type": "practice",
+                  "label": "Créer un email IA à partir de données",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "tool", "label": "Gmail / Outlook", "url": "https://mail.google.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-5",
+              "day": 5,
+              "title": "IA + Google Sheets",
+              "goal": "Traiter des données automatiquement",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e8",
+                  "type": "practice",
+                  "label": "Analyser et enrichir un tableau avec IA",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "Make + Google Sheets", "url": "https://www.make.com/en/help" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-3",
+          "title": "Automatisations intermédiaires",
+          "loops": [
+            {
+              "id": "loop-6",
+              "day": 6,
+              "title": "IA + formulaires",
+              "goal": "Transformer des entrées utilisateur en actions",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e9",
+                  "type": "practice",
+                  "label": "Analyser réponses Google Form avec IA",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "tool", "label": "Google Forms", "url": "https://forms.google.com" },
+                    { "type": "tool", "label": "Make", "url": "https://www.make.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-7",
+              "day": 7,
+              "title": "IA & documents",
+              "goal": "Générer des documents automatiquement",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e10",
+                  "type": "practice",
+                  "label": "Créer un document (rapport, devis, compte rendu)",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "tool", "label": "Google Docs", "url": "https://docs.google.com" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-8",
+              "day": 8,
+              "title": "IA & CRM",
+              "goal": "Qualifier et enrichir des leads",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e11",
+                  "type": "practice",
+                  "label": "Scorer des leads avec IA",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "CRM automation basics", "url": "https://zapier.com/blog/crm-automation/" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-4",
+          "title": "Workflows avancés & fiabilité",
+          "loops": [
+            {
+              "id": "loop-9",
+              "day": 9,
+              "title": "Chaînage IA multi-étapes",
+              "goal": "Faire coopérer plusieurs prompts",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e12",
+                  "type": "practice",
+                  "label": "Pipeline : analyse → décision → action",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "Chain-of-thought", "url": "https://www.promptingguide.ai/techniques/cot" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-10",
+              "day": 10,
+              "title": "Gestion des erreurs",
+              "goal": "Rendre l’automatisation robuste",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e13",
+                  "type": "practice",
+                  "label": "Fallback, retries et validations",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "Automation error handling", "url": "https://www.make.com/en/help/error-handling" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-11",
+              "day": 11,
+              "title": "Coûts & performance",
+              "goal": "Optimiser coûts et temps de réponse",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e14",
+                  "type": "read",
+                  "label": "Lire : Pricing & tokens",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "OpenAI Pricing", "url": "https://platform.openai.com/pricing" }
+                  ]
+                },
+                {
+                  "id": "e15",
+                  "type": "practice",
+                  "label": "Réduire tokens d’un workflow existant",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-5",
+          "title": "Cas métiers & spécialisation",
+          "loops": [
+            {
+              "id": "loop-12",
+              "day": 12,
+              "title": "Support client automatisé",
+              "goal": "Répondre automatiquement aux demandes",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e16",
+                  "type": "practice",
+                  "label": "Classifier et répondre à des tickets",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "AI customer support", "url": "https://www.zendesk.com/blog/ai-customer-service/" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-13",
+              "day": 13,
+              "title": "Marketing automatisé",
+              "goal": "Créer et diffuser du contenu automatiquement",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e17",
+                  "type": "practice",
+                  "label": "Générer posts + emails marketing",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "AI marketing automation", "url": "https://zapier.com/blog/ai-marketing-automation/" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-6",
+          "title": "Projet final & professionnalisation",
+          "loops": [
+            {
+              "id": "loop-14",
+              "day": 14,
+              "title": "Choix du cas réel",
+              "goal": "Définir une automatisation utile",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e18",
+                  "type": "write",
+                  "label": "Définir le problème, l’entrée et la sortie",
+                  "estimatedMinutes": 120,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-15",
+              "day": 15,
+              "title": "Implémentation",
+              "goal": "Construire le workflow final",
+              "xpBonus": { "completion": 100, "fullCompletion": 50, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e19",
+                  "type": "practice",
+                  "label": "Automatisation complète IA",
+                  "estimatedMinutes": 120,
+                  "xpReward": 100,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-16",
+              "day": 16,
+              "title": "Documentation & ROI",
+              "goal": "Mesurer et expliquer la valeur",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e20",
+                  "type": "write",
+                  "label": "Documenter gains de temps et coûts",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-7",
+          "title": "Stabilisation, sécurité & déploiement",
+          "loops": [
+            {
+              "id": "loop-17",
+              "day": 17,
+              "title": "Gestion des données & confidentialité",
+              "goal": "Manipuler des données sans risques",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e21",
+                  "type": "read",
+                  "label": "Lire : Data privacy & IA",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "CNIL – IA & données personnelles", "url": "https://www.cnil.fr/fr/intelligence-artificielle" }
+                  ]
+                },
+                {
+                  "id": "e22",
+                  "type": "practice",
+                  "label": "Identifier données sensibles dans un workflow",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-18",
+              "day": 18,
+              "title": "Sécurité & contrôle d’accès",
+              "goal": "Protéger les automatisations IA",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e23",
+                  "type": "read",
+                  "label": "Lire : API keys & security basics",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "OpenAI – API Safety", "url": "https://platform.openai.com/docs/guides/safety-best-practices" }
+                  ]
+                },
+                {
+                  "id": "e24",
+                  "type": "practice",
+                  "label": "Mettre en place des clés, limites et permissions",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-19",
+              "day": 19,
+              "title": "Logs & monitoring",
+              "goal": "Observer et comprendre le comportement IA",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e25",
+                  "type": "practice",
+                  "label": "Logger prompts, réponses et erreurs",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    { "type": "article", "label": "Observability for automation", "url": "https://www.make.com/en/help/logs" }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-20",
+              "day": 20,
+              "title": "Tests & cas limites",
+              "goal": "Valider la robustesse du système",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e26",
+                  "type": "practice",
+                  "label": "Tester scénarios normaux et extrêmes",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-21",
+              "day": 21,
+              "title": "Optimisation & scaling",
+              "goal": "Rendre l’automatisation scalable",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e27",
+                  "type": "read",
+                  "label": "Lire : Scaling automations",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    { "type": "article", "label": "Zapier – Scale workflows", "url": "https://zapier.com/blog/scaling-automation/" }
+                  ]
+                },
+                {
+                  "id": "e28",
+                  "type": "practice",
+                  "label": "Optimiser un workflow existant",
+                  "estimatedMinutes": 75,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-22",
+              "day": 22,
+              "title": "Packaging & réutilisation",
+              "goal": "Transformer une automatisation en produit",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e29",
+                  "type": "practice",
+                  "label": "Créer un template réutilisable",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-23",
+              "day": 23,
+              "title": "Préparation démo & livraison",
+              "goal": "Présenter une automatisation clairement",
+              "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e30",
+                  "type": "practice",
+                  "label": "Préparer une démo client ou interne",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-8",
+          "title": "Projet final — livrable réel",
+          "loops": [
+            {
+              "id": "loop-24",
+              "day": 24,
+              "title": "Automatisation réelle",
+              "goal": "Livrer une automatisation IA utile et mesurable",
+              "xpBonus": { "completion": 100, "fullCompletion": 50, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e30",
+                  "type": "practice",
+                  "label": "Créer une automatisation complète (brief → IA → action)",
+                  "estimatedMinutes": 120,
+                  "xpReward": 100,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
