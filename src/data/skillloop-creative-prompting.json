@@ -1,0 +1,393 @@
+{
+    "id": "skillloop-creative-prompting",
+    "title": "Prompting pour Creative Professionals",
+    "description": "Créer du contenu créatif cohérent, différenciant et réutilisable avec l’IA.",
+    "estimatedHoursPerLoop": 2,
+    "paths": [
+      {
+        "id": "path-creative-core",
+        "title": "Créativité & IA",
+        "objective": "Maîtriser la créativité assistée par IA pour le branding, le storytelling et le marketing",
+        "modules": [
+  
+          {
+            "id": "chapter-1",
+            "title": "IA & créativité (fondations)",
+            "loops": [
+              {
+                "id": "loop-1",
+                "day": 1,
+                "title": "Mythes & limites de la créativité IA",
+                "goal": "Comprendre ce que l’IA peut et ne peut pas faire",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e1",
+                    "type": "read",
+                    "label": "IA et créativité humaine",
+                    "estimatedMinutes": 45,
+                    "xpReward": 20,
+                    "resources": [
+                      { "type": "article", "label": "Creativity & AI", "url": "https://www.nature.com/articles/s41586-019-1365-4" }
+                    ]
+                  },
+                  {
+                    "id": "e2",
+                    "type": "practice",
+                    "label": "Comparer création humaine vs IA",
+                    "estimatedMinutes": 75,
+                    "xpReward": 40,
+                    "resources": [
+                      { "type": "tool", "label": "ChatGPT", "url": "https://chat.openai.com" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+  
+              {
+                "id": "loop-2",
+                "day": 2,
+                "title": "Bases du prompting créatif",
+                "goal": "Structurer des prompts créatifs efficaces",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e3",
+                    "type": "read",
+                    "label": "Creative Prompting Basics",
+                    "estimatedMinutes": 45,
+                    "xpReward": 20,
+                    "resources": [
+                      { "type": "article", "label": "Prompting Guide – Creative", "url": "https://www.promptingguide.ai/applications/creative-writing" }
+                    ]
+                  },
+                  {
+                    "id": "e4",
+                    "type": "practice",
+                    "label": "Créer 5 variations créatives d’un même prompt",
+                    "estimatedMinutes": 75,
+                    "xpReward": 40,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+  
+          {
+            "id": "chapter-2",
+            "title": "Storytelling & narration",
+            "loops": [
+              {
+                "id": "loop-3",
+                "day": 3,
+                "title": "Prompts narratifs",
+                "goal": "Créer des histoires cohérentes avec l’IA",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e5",
+                    "type": "practice",
+                    "label": "Créer un storytelling de marque",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Storytelling Marketing", "url": "https://hbr.org/2014/03/what-makes-brand-storytelling-work" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+  
+              {
+                "id": "loop-4",
+                "day": 4,
+                "title": "Arc narratif & cohérence",
+                "goal": "Maintenir une narration sur plusieurs contenus",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e6",
+                    "type": "practice",
+                    "label": "Décliner une histoire en 3 formats",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+  
+          {
+            "id": "chapter-3",
+            "title": "Ton, style & branding",
+            "loops": [
+              {
+                "id": "loop-5",
+                "day": 5,
+                "title": "Voix de marque",
+                "goal": "Créer un ton reconnaissable",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e7",
+                    "type": "practice",
+                    "label": "Définir un ton de marque clair",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Brand Voice", "url": "https://www.nngroup.com/articles/brand-voice/" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+  
+          {
+            "id": "chapter-4",
+            "title": "Création de contenus en série",
+            "loops": [
+              {
+                "id": "loop-6",
+                "day": 6,
+                "title": "Séries de contenus cohérentes",
+                "goal": "Industrialiser la créativité",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e8",
+                    "type": "practice",
+                    "label": "Créer une série de 5 contenus cohérents",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          },
+          {
+            "id": "chapter-5",
+            "title": "Prompting créatif avancé & marketing",
+            "loops": [
+          
+              {
+                "id": "loop-7",
+                "day": 7,
+                "title": "Contraintes créatives avancées",
+                "goal": "Stimuler la créativité par des contraintes",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e20",
+                    "type": "practice",
+                    "label": "Créer 5 contenus avec contraintes fortes (format, ton, audience)",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Creative Constraints", "url": "https://www.interaction-design.org/literature/article/how-constraints-fuel-creativity" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-8",
+                "day": 8,
+                "title": "Few-shot & style imitation",
+                "goal": "Guider l’IA par l’exemple",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e21",
+                    "type": "practice",
+                    "label": "Imiter le style d’une marque ou créateur",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Few-Shot Prompting", "url": "https://www.promptingguide.ai/techniques/few-shot" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-9",
+                "day": 9,
+                "title": "Prompts marketing créatif",
+                "goal": "Créer des messages marketing différenciants",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e22",
+                    "type": "practice",
+                    "label": "Créer une campagne marketing créative (1 produit)",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Creative Marketing", "url": "https://hbr.org/2015/06/the-value-of-marketing-creativity" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-10",
+                "day": 10,
+                "title": "Scripts vidéo & podcast",
+                "goal": "Créer des scripts engageants",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e23",
+                    "type": "practice",
+                    "label": "Écrire 2 scripts vidéo + 1 script podcast",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Video Scriptwriting", "url": "https://www.studiobinder.com/blog/video-script-writing/" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-11",
+                "day": 11,
+                "title": "Création de séries narratives",
+                "goal": "Maintenir cohérence et tension narrative",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e24",
+                    "type": "practice",
+                    "label": "Créer une série de 5 contenus narratifs",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Narrative Arcs", "url": "https://blog.hubspot.com/marketing/storytelling" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-12",
+                "day": 12,
+                "title": "Multimodal : texte → image",
+                "goal": "Traduire une intention créative en visuel",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e25",
+                    "type": "practice",
+                    "label": "Créer 3 prompts visuels cohérents avec la marque",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "tool", "label": "DALL·E / Midjourney", "url": "https://openai.com/dall-e" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-13",
+                "day": 13,
+                "title": "Itération & amélioration créative",
+                "goal": "Améliorer les outputs par cycles",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e26",
+                    "type": "practice",
+                    "label": "Itérer 3 fois sur un même contenu",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Creative Iteration", "url": "https://www.nngroup.com/articles/iteration/" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-14",
+                "day": 14,
+                "title": "Qualité, cohérence & contrôle",
+                "goal": "Évaluer la qualité créative des sorties IA",
+                "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e27",
+                    "type": "practice",
+                    "label": "Créer checklist qualité créative",
+                    "estimatedMinutes": 120,
+                    "xpReward": 60,
+                    "resources": [
+                      { "type": "article", "label": "Creative Quality Control", "url": "https://www.smashingmagazine.com/2019/02/creative-workflow-checklist/" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-15",
+                "day": 15,
+                "title": "Préparation du projet final",
+                "goal": "Définir la marque du Creative AI Brand Engine",
+                "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e28",
+                    "type": "write",
+                    "label": "Choisir la marque et définir les objectifs créatifs",
+                    "estimatedMinutes": 120,
+                    "xpReward": 80,
+                    "resources": []
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              },
+          
+              {
+                "id": "loop-16",
+                "day": 16,
+                "title": "Architecture du Creative AI Brand Engine",
+                "goal": "Structurer le système de prompts final",
+                "xpBonus": { "completion": 75, "fullCompletion": 25, "reflectionCompleted": 25 },
+                "exercises": [
+                  {
+                    "id": "e29",
+                    "type": "practice",
+                    "label": "Définir l'architecture complète du moteur créatif IA",
+                    "estimatedMinutes": 120,
+                    "xpReward": 80,
+                    "resources": [
+                      { "type": "article", "label": "Prompt Systems Design", "url": "https://www.promptingguide.ai/guides/prompt-design" }
+                    ]
+                  }
+                ],
+                "debrief": { "notes": "", "insights": "", "questions": "" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}
