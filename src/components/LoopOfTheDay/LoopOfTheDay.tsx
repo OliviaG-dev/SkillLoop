@@ -22,11 +22,17 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
   const uncompleteExercise = useSkillLoopStore((s) => s.uncompleteExercise);
   const updateDebrief = useSkillLoopStore((s) => s.updateDebrief);
   const completeLoop = useSkillLoopStore((s) => s.completeLoop);
-  const loopsProgress = useSkillLoopStore((s) => s.loops);
-  const totalXp = useSkillLoopStore((s) => s.totalXp);
+  const getCurrentProgramProgress = useSkillLoopStore((s) => s.getCurrentProgramProgress);
+  const getTotalXp = useSkillLoopStore((s) => s.getTotalXp);
+  const getLoopProgress = useSkillLoopStore((s) => s.getLoopProgress);
+
+  // Récupérer la progression de la formation actuelle
+  const currentProgress = getCurrentProgramProgress();
+  const loopsProgress = currentProgress.loops;
+  const totalXp = getTotalXp();
 
   // Récupérer la progression de la loop directement
-  const loopProgress = loopsProgress[loop.id];
+  const loopProgress = getLoopProgress(loop.id);
 
   // Calculer l'XP restant localement
   const xpRemaining = useMemo(() => {

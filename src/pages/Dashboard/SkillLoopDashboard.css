@@ -25,6 +25,47 @@
   min-height: 100vh;
 }
 
+/* ==================== BOUTON RETOUR ==================== */
+.dashboard-back-button {
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid var(--program-color, var(--color-violet));
+  border-radius: 12px;
+  color: var(--program-color, var(--color-violet));
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.back-button:hover {
+  background: var(--program-color, var(--color-violet));
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.back-button svg {
+  flex-shrink: 0;
+}
+
+.dashboard-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
 /* ==================== HEADER ==================== */
 .dashboard-header {
   margin-bottom: 3rem;
@@ -204,12 +245,14 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #10b981 0%, #059669 50%, #047857 100%);
+  background: var(--program-color, #667eea);
   border-radius: 10px;
-  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    width 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease;
   box-shadow:
-    0 0 20px rgba(16, 185, 129, 0.4),
-    0 2px 8px rgba(16, 185, 129, 0.3);
+    0 0 20px rgba(0, 0, 0, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -620,33 +663,35 @@
 }
 
 .day-card.day-in-progress {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #eff6ff 100%);
-  border-color: #3b82f6;
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  border-color: var(--program-color, #3b82f6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .day-card.day-in-progress::before {
-  background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
+  background: var(--program-color, #3b82f6);
   transform: scaleX(1);
   height: 5px;
 }
 
 .day-card.day-in-progress::after {
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.12) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+  opacity: 0.6;
 }
 
 .day-card.day-not-started {
   background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-  border-color: rgba(139, 127, 184, 0.2);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .day-card.day-not-started:hover {
-  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-  border-color: var(--color-violet, #8b7fb8);
+  border-color: var(--program-color, var(--color-violet, #8b7fb8));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .day-card-header {
@@ -676,7 +721,7 @@
 }
 
 .day-card.day-in-progress .day-number-label {
-  color: #2563eb;
+  color: var(--program-color, #2563eb);
 }
 
 .day-number-value {
@@ -702,7 +747,7 @@
 }
 
 .day-card.day-in-progress .day-number-value {
-  background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
+  background: var(--program-color, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -748,7 +793,8 @@
 }
 
 .day-card.day-in-progress .day-card-title {
-  color: #1e40af;
+  color: var(--program-color, #1e40af);
+  opacity: 0.9;
 }
 
 .day-card-goal {
@@ -763,7 +809,8 @@
 }
 
 .day-card.day-in-progress .day-card-goal {
-  color: #1e3a8a;
+  color: var(--program-color, #1e3a8a);
+  opacity: 0.8;
 }
 
 .day-card-progress {
@@ -788,19 +835,17 @@
 }
 
 .day-card.day-in-progress .day-progress-bar-container {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .day-progress-bar-fill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-violet, #8b7fb8),
-    var(--color-blue, #6b9bd2)
-  );
+  background: var(--program-color, var(--color-violet, #8b7fb8));
   border-radius: 8px;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(139, 127, 184, 0.3);
+  transition:
+    width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -826,8 +871,8 @@
 }
 
 .day-card.day-in-progress .day-progress-bar-fill {
-  background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  background: var(--program-color, #3b82f6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .day-progress-text {
@@ -844,7 +889,8 @@
 }
 
 .day-card.day-in-progress .day-progress-text {
-  color: #1e40af;
+  color: var(--program-color, #1e40af);
+  font-weight: 700;
 }
 
 /* ==================== RESPONSIVE ==================== */

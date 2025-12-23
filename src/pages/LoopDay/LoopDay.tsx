@@ -1,16 +1,39 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
+import { useProgramsStore } from "../../store/useProgramsStore";
 import { LoopOfTheDay } from "../../components/LoopOfTheDay/LoopOfTheDay";
 import { BookIcon } from "../../components/Icons";
 import "./LoopDay.css";
 
-type LoopDayProps = {
-  dayNumber: number;
-  onNavigate: (view: "home" | "dashboard") => void;
-};
-
-export const LoopDay: React.FC<LoopDayProps> = ({ dayNumber }) => {
+export const LoopDay: React.FC = () => {
+  const { programId, dayNumber: dayNumberParam } = useParams<{ 
+    programId: string; 
+    dayNumber: string;
+  }>();
+  const navigate = useNavigate();
   const program = useSkillLoopStore((s) => s.program);
+  const loadProgram = useSkillLoopStore((s) => s.loadProgram);
+  const setCurrentProgram = useProgramsStore((s) => s.setCurrentProgram);
+
+  const dayNumber = dayNumberParam ? parseInt(dayNumberParam, 10) : 0;
+
+  // Charger la formation si nécessaire
+  useEffect(() => {
+    if (!programId || !dayNumber) {
+      navigate("/programs");
+      return;
+    }
+
+    if (!program || program.id !== programId) {
+      const success = loadProgram(programId);
+      if (success) {
+        setCurrentProgram(programId);
+      } else {
+        navigate("/programs");
+      }
+    }
+  }, [programId, dayNumber, program, loadProgram, setCurrentProgram, navigate]);
 
   // Trouver la loop correspondant au jour
   const loop = useMemo(() => {

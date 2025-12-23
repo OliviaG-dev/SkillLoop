@@ -1,11 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { TargetIcon, ChartIcon, FlameIcon } from "../../components/Icons";
 import "./Home.css";
 
-type HomeProps = {
-  onNavigate: (view: "home" | "dashboard") => void;
-};
-
-export function Home({ onNavigate }: HomeProps) {
+export function Home() {
+  const navigate = useNavigate();
   return (
     <div className="home-landing">
       <section className="home-hero">
@@ -36,7 +34,7 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       <section className="home-pillars" id="concept">
-        <div className="section-header">
+        <div className="section-header-home">
           <div className="section-kicker">Le concept</div>
           <h2>La maîtrise est une boucle, pas un événement</h2>
           <p className="section-subtitle">
@@ -80,7 +78,7 @@ export function Home({ onNavigate }: HomeProps) {
       </section>
 
       <section className="home-how-it-works">
-        <div className="section-header">
+        <div className="section-header-home">
           <div className="section-kicker">Comment ça marche</div>
           <h2>Un système d'entraînement pour la maîtrise</h2>
           <p className="section-subtitle">
@@ -136,7 +134,13 @@ export function Home({ onNavigate }: HomeProps) {
             <div className="cta-actions">
               <button
                 className="hero-button primary"
-                onClick={() => onNavigate("dashboard")}
+                onClick={() => navigate("/programs")}
+              >
+                Voir les formations
+              </button>
+              <button
+                className="hero-button secondary"
+                onClick={() => navigate("/programs")}
               >
                 Accéder au dashboard
               </button>
