@@ -166,7 +166,7 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
           <div className="dashboard-progress-section">
             <div className="progress-header">
               <span className="progress-label">Progression globale</span>
-              <span className="progress-percentage">
+              <span className="progress-percentage-dashboard">
                 {globalProgress.globalProgressPercent}%
               </span>
             </div>
