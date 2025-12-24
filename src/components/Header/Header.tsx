@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { ChartIcon, BookIcon } from "../Icons";
+import { ChartIcon } from "../Icons";
 import "./Header.css";
 
 type HeaderProps = {
@@ -13,10 +13,6 @@ export function Header({ currentView }: HeaderProps) {
 
   const handleNavigateToHome = () => {
     navigate("/");
-  };
-
-  const handleNavigateToPrograms = () => {
-    navigate("/programs");
   };
 
   const handleNavigateToDashboard = () => {
@@ -49,12 +45,6 @@ export function Header({ currentView }: HeaderProps) {
             onClick={handleNavigateToHome}
           >
             Home
-          </button>
-          <button
-            className={`nav-button ${currentView === "programs" ? "active" : ""}`}
-            onClick={handleNavigateToPrograms}
-          >
-            <BookIcon size={18} /> Formations
           </button>
           <button
             className={`nav-button ${currentView === "dashboard" || currentView === "loopday" ? "active" : ""}`}

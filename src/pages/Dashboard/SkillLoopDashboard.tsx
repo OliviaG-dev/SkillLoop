@@ -209,7 +209,7 @@ export const SkillLoopDashboard: React.FC = () => {
             "--program-color": programColor,
           } as React.CSSProperties}
         >
-          <div className="dashboard-title-section">
+          <div className="dashboard-title-section-dashboard">
             <h1 className="dashboard-title">{program.title}</h1>
             <p className="dashboard-subtitle">{program.description}</p>
           </div>

@@ -96,7 +96,7 @@
   pointer-events: none;
 }
 
-.dashboard-title-section {
+.dashboard-title-section-dashboard {
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
@@ -601,14 +601,12 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(
-    90deg,
-    var(--color-violet, #8b7fb8),
-    var(--color-blue, #6b9bd2)
-  );
+  background: var(--program-color, var(--color-violet, #8b7fb8));
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .day-card::after {
@@ -631,7 +629,7 @@
 .day-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-color: var(--color-violet, #8b7fb8);
+  border-color: var(--program-color, var(--color-violet, #8b7fb8));
 }
 
 .day-card:hover::before {
@@ -674,7 +672,7 @@
 }
 
 .day-card.day-in-progress::before {
-  background: var(--program-color, #3b82f6);
+  background: var(--program-color, var(--color-violet, #8b7fb8));
   transform: scaleX(1);
   height: 5px;
 }
