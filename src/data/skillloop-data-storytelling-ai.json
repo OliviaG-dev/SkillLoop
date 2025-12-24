@@ -1,0 +1,383 @@
+{
+  "id": "skillloop-data-storytelling-ai",
+  "title": "Data Storytelling assisté par IA",
+  "description": "Transformer des données brutes en récits clairs, visuels et décisionnels grâce à l'IA",
+  "estimatedHoursPerLoop": 2,
+  "paths": [
+    {
+      "id": "path-data-story-core",
+      "title": "Data Storytelling & IA",
+      "objective": "Analyser, visualiser et raconter une histoire à partir des données avec l'aide de l'IA",
+      "modules": [
+        {
+          "id": "chapter-1",
+          "title": "Fondations du Data Storytelling",
+          "loops": [
+            {
+              "id": "loop-1",
+              "day": 1,
+              "title": "Qu'est-ce que le Data Storytelling",
+              "goal": "Comprendre pourquoi la narration est essentielle pour interpréter les données",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e1",
+                  "type": "read",
+                  "label": "Lire : Définition et enjeux du Data Storytelling",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    {
+                      "type": "article",
+                      "label": "Huwise – Data Storytelling (FR)",
+                      "url": "https://www.huwise.com/fr/glossaire/data-storytelling/"
+                    }
+                  ]
+                },
+                {
+                  "id": "e2",
+                  "type": "watch",
+                  "label": "Vidéo : Raconter une histoire avec les données",
+                  "estimatedMinutes": 30,
+                  "xpReward": 20,
+                  "resources": [
+                    {
+                      "type": "video",
+                      "label": "LinkedIn Learning – Data Storytelling (FR)",
+                      "url": "https://www.linkedin.com/learning/visualisation-des-donnees-pour-l-analyse-et-l-analytique-des-donnees/raconter-une-histoire-avec-les-donnees-data-storytelling"
+                    }
+                  ]
+                },
+                {
+                  "id": "e3",
+                  "type": "practice",
+                  "label": "Analyser un graphique mal expliqué et proposer un meilleur récit",
+                  "estimatedMinutes": 45,
+                  "xpReward": 40,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-2",
+              "day": 2,
+              "title": "Types de données & biais",
+              "goal": "Identifier les limites et biais des données",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e4",
+                  "type": "read",
+                  "label": "Lire : Comprendre les biais statistiques",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    {
+                      "type": "article",
+                      "label": "INSEE – Biais et erreurs statistiques (FR)",
+                      "url": "https://www.insee.fr/fr/information/2410169"
+                    }
+                  ]
+                },
+                {
+                  "id": "e5",
+                  "type": "practice",
+                  "label": "Lister les biais possibles d'un dataset public",
+                  "estimatedMinutes": 60,
+                  "xpReward": 40,
+                  "resources": [
+                    {
+                      "type": "dataset",
+                      "label": "Data.gouv.fr – Jeux de données publics",
+                      "url": "https://www.data.gouv.fr"
+                    }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-3",
+              "day": 3,
+              "title": "IA comme explorateur de données",
+              "goal": "Utiliser l'IA pour comprendre rapidement un dataset",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e6",
+                  "type": "practice",
+                  "label": "Résumer un dataset avec IA (insights, questions, limites)",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": [
+                    {
+                      "type": "tool",
+                      "label": "ChatGPT",
+                      "url": "https://chat.openai.com"
+                    }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-2",
+          "title": "Analyse assistée par IA",
+          "loops": [
+            {
+              "id": "loop-4",
+              "day": 4,
+              "title": "Poser les bonnes questions aux données",
+              "goal": "Formuler des prompts d'analyse pertinents",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e7",
+                  "type": "read",
+                  "label": "Lire : Comment analyser des données avec l'IA",
+                  "estimatedMinutes": 30,
+                  "xpReward": 20,
+                  "resources": [
+                    {
+                      "type": "article",
+                      "label": "DataCamp – Data Storytelling Concepts (EN/FR)",
+                      "url": "https://www.datacamp.com/courses/data-storytelling-concepts"
+                    }
+                  ]
+                },
+                {
+                  "id": "e8",
+                  "type": "practice",
+                  "label": "Créer 10 questions d'analyse pertinentes pour un dataset",
+                  "estimatedMinutes": 60,
+                  "xpReward": 40,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-5",
+              "day": 5,
+              "title": "Tendances & anomalies",
+              "goal": "Identifier signaux forts et faibles",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e9",
+                  "type": "practice",
+                  "label": "Analyser tendances et anomalies avec IA",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-6",
+              "day": 6,
+              "title": "Comparaisons & scénarios",
+              "goal": "Comparer segments et périodes",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e10",
+                  "type": "practice",
+                  "label": "Analyse comparative avant / après",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-3",
+          "title": "Visualisation intelligente",
+          "loops": [
+            {
+              "id": "loop-7",
+              "day": 7,
+              "title": "Choisir le bon graphique",
+              "goal": "Aligner message et visualisation",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e11",
+                  "type": "read",
+                  "label": "Lire : Comment choisir le bon graphique",
+                  "estimatedMinutes": 45,
+                  "xpReward": 20,
+                  "resources": [
+                    {
+                      "type": "article",
+                      "label": "Datawrapper – Choisir le bon graphique (FR)",
+                      "url": "https://www.datawrapper.de/blog/choisir-le-bon-graphique/"
+                    }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-8",
+              "day": 8,
+              "title": "Créer des visualisations claires",
+              "goal": "Réduire le bruit visuel",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e12",
+                  "type": "practice",
+                  "label": "Créer 5 graphiques clairs et lisibles",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": [
+                    {
+                      "type": "tool",
+                      "label": "Datawrapper",
+                      "url": "https://www.datawrapper.de"
+                    }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-9",
+              "day": 9,
+              "title": "Améliorer un graphique avec l'IA",
+              "goal": "Utiliser l'IA pour expliquer et optimiser une visualisation",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e13",
+                  "type": "practice",
+                  "label": "Analyser et améliorer un graphique avec IA",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-4",
+          "title": "Narration & décision",
+          "loops": [
+            {
+              "id": "loop-10",
+              "day": 10,
+              "title": "Structurer une histoire data",
+              "goal": "Transformer chiffres en récit compréhensible",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e14",
+                  "type": "practice",
+                  "label": "Rédiger un storytelling data complet",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-11",
+              "day": 11,
+              "title": "Adapter le message à l'audience",
+              "goal": "Adapter le récit selon le public",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e15",
+                  "type": "practice",
+                  "label": "Même data, 3 audiences différentes",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-12",
+              "day": 12,
+              "title": "Recommandations & limites",
+              "goal": "Formuler des décisions responsables",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e16",
+                  "type": "practice",
+                  "label": "Formuler recommandations, hypothèses et limites",
+                  "estimatedMinutes": 90,
+                  "xpReward": 60,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        },
+        {
+          "id": "chapter-5",
+          "title": "Projet final — AI-Powered Data Story Report",
+          "loops": [
+            {
+              "id": "loop-13",
+              "day": 13,
+              "title": "Construction du rapport",
+              "goal": "Assembler analyse, visuels et narration",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e17",
+                  "type": "practice",
+                  "label": "Créer dashboard + résumé exécutif",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": []
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            },
+            {
+              "id": "loop-14",
+              "day": 14,
+              "title": "Présentation & portfolio",
+              "goal": "Présenter un projet clair et professionnel",
+              "xpBonus": { "completion": 50, "fullCompletion": 25, "reflectionCompleted": 25 },
+              "exercises": [
+                {
+                  "id": "e18",
+                  "type": "practice",
+                  "label": "Créer une page Notion ou slides finales",
+                  "estimatedMinutes": 120,
+                  "xpReward": 80,
+                  "resources": [
+                    {
+                      "type": "tool",
+                      "label": "Notion",
+                      "url": "https://www.notion.so"
+                    }
+                  ]
+                }
+              ],
+              "debrief": { "notes": "", "insights": "", "questions": "" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

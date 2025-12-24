@@ -138,6 +138,7 @@ Interface moderne et élégante avec :
   - Automatisation IA Pro : Bleu (#6b9bd2)
   - Creative Prompting : Vert (#6bc7a6)
   - IA & Productivité : Orange (#f59e0b)
+  - Data Storytelling : Rose (#ec4899)
 - **Dégradés colorés** adaptés au thème de chaque formation
 - **Design responsive** pour mobile et desktop
 - **Animations fluides** pour une meilleure UX
@@ -179,7 +180,7 @@ Interface moderne et élégante avec :
 - ✅ Page d'accueil avec présentation des formations
 - ✅ Dashboard principal avec liste des formations
 - ✅ Dashboard spécifique par formation avec thème de couleur
-- ✅ Gestion de multiples formations (5 formations disponibles)
+- ✅ Gestion de multiples formations (6 formations disponibles)
 - ✅ Page LoopDay pour un jour spécifique
 - ✅ Système XP et niveaux par formation
 - ✅ Badges de progression
@@ -215,7 +216,7 @@ SkillLoop transforme la formation en un système d'entraînement, où la pratiqu
 
 ## 🎓 Formations disponibles
 
-SkillLoop propose actuellement **5 formations** couvrant différents aspects de l'IA :
+SkillLoop propose actuellement **6 formations** couvrant différents aspects de l'IA :
 
 1. **Fondations IA & Intégration** (#667eea)
    - Construire un assistant IA fonctionnel avec streaming, backend propre et UX crédible
@@ -235,6 +236,10 @@ SkillLoop propose actuellement **5 formations** couvrant différents aspects de 
 
 5. **IA & Productivité** (#f59e0b)
    - Optimiser votre productivité avec l'IA au quotidien
+   - ~2h par loop
+
+6. **Data Storytelling assisté par IA** (#ec4899)
+   - Transformer des données brutes en récits clairs, visuels et décisionnels grâce à l'IA
    - ~2h par loop
 
 ## 📝 License

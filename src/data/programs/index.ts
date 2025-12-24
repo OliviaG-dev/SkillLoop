@@ -4,6 +4,7 @@ import promptEngineeringData from "../skilloop-prompt-engineering.json";
 import aiAutomationProData from "../skillloop-ai-automation-pro.json";
 import creativePromptingData from "../skillloop-creative-prompting.json";
 import iaProductivityData from "../skillloop-ia-productivity.json";
+import dataStorytellingData from "../skillloop-data-storytelling-ai.json";
 
 /**
  * Métadonnées d'une formation pour l'affichage dans la liste
@@ -88,6 +89,16 @@ export const programsRegistry: Record<string, ProgramConfig> = {
       color: "#f59e0b",
     },
     loader: () => iaProductivityData as Program,
+  },
+  "skillloop-data-storytelling-ai": {
+    metadata: {
+      id: "skillloop-data-storytelling-ai",
+      title: "Data Storytelling assisté par IA",
+      description: "Transformer des données brutes en récits clairs, visuels et décisionnels grâce à l'IA",
+      estimatedHoursPerLoop: 2,
+      color: "#ec4899",
+    },
+    loader: () => dataStorytellingData as Program,
   },
 };
 
