@@ -209,7 +209,7 @@
   box-shadow: var(--shadow-md);
 }
 
-.section-header {
+.section-header-home {
   margin-bottom: 2.5rem;
   text-align: center;
 }
@@ -228,7 +228,7 @@
   margin-bottom: 0.75rem;
 }
 
-.section-header h2 {
+.section-header-home h2 {
   margin: 0 0 0.5rem;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   color: var(--text-primary);

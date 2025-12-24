@@ -1,5 +1,8 @@
-import { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
+import { useProgramsStore } from "../../store/useProgramsStore";
+import { getProgramMetadata } from "../../data/programs";
 import {
   ChartIcon,
   TrophyIcon,
@@ -7,18 +10,44 @@ import {
   FlameIcon,
   CheckIcon,
   CalendarIcon,
+  BookIcon,
 } from "../../components/Icons";
 import "./SkillLoopDashboard.css";
 
-type SkillLoopDashboardProps = {
-  onNavigateToDay: (dayNumber: number) => void;
-};
-
-export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
-  onNavigateToDay,
-}) => {
+export const SkillLoopDashboard: React.FC = () => {
+  const { programId } = useParams<{ programId: string }>();
+  const navigate = useNavigate();
   const program = useSkillLoopStore((s) => s.program);
-  const totalXp = useSkillLoopStore((s) => s.totalXp);
+  const loadProgram = useSkillLoopStore((s) => s.loadProgram);
+  const setCurrentProgram = useProgramsStore((s) => s.setCurrentProgram);
+  const getTotalXp = useSkillLoopStore((s) => s.getTotalXp);
+  const totalXp = getTotalXp();
+
+  // Récupérer les métadonnées de la formation (couleur, etc.)
+  const programMetadata = useMemo(() => {
+    if (!programId) return null;
+    return getProgramMetadata(programId);
+  }, [programId]);
+
+  // Couleur de la formation (avec fallback)
+  const programColor = programMetadata?.color || "#667eea";
+
+  // Charger la formation si nécessaire
+  useEffect(() => {
+    if (!programId) {
+      navigate("/programs");
+      return;
+    }
+
+    if (!program || program.id !== programId) {
+      const success = loadProgram(programId);
+      if (success) {
+        setCurrentProgram(programId);
+      } else {
+        navigate("/programs");
+      }
+    }
+  }, [programId, program, loadProgram, setCurrentProgram, navigate]);
 
   // Calculer le niveau et les badges de manière stable
   const level = useMemo(() => {
@@ -51,14 +80,20 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
 
   // Calculer loops avec useMemo pour éviter les re-renders infinis
   const loops = useMemo(
-    () => program.paths.flatMap((p) => p.modules).flatMap((m) => m.loops),
+    () => (program?.paths || []).flatMap((p) => p.modules).flatMap((m) => m.loops),
     [program]
   );
 
-  const loopsProgress = useSkillLoopStore((s) => s.loops);
+  const getCurrentProgramProgress = useSkillLoopStore((s) => s.getCurrentProgramProgress);
+  const currentProgress = getCurrentProgramProgress();
+  const loopsProgress = currentProgress.loops;
 
   // Organiser les loops par jour et calculer la progression
   const daysData = useMemo(() => {
+    if (!program || loops.length === 0) {
+      return [];
+    }
+
     const daysMap = new Map<
       number,
       {
@@ -93,10 +128,14 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
     });
 
     return Array.from(daysMap.values()).sort((a, b) => a.day - b.day);
-  }, [loops, loopsProgress]);
+  }, [loops, loopsProgress, program]);
 
   // Progression globale
   const globalProgress = useMemo(() => {
+    if (!program || loops.length === 0) {
+      return { totalExercises: 0, completedExercises: 0, globalProgressPercent: 0 };
+    }
+
     const totalExercises = loops.reduce(
       (sum, l) => sum + l.exercises.length,
       0
@@ -110,14 +149,67 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
         ? Math.round((completedExercises / totalExercises) * 100)
         : 0;
     return { totalExercises, completedExercises, globalProgressPercent };
-  }, [loops, loopsProgress]);
+  }, [loops, loopsProgress, program]);
+
+  // Fonction pour générer un gradient à partir de la couleur
+  const getGradient = (color: string) => {
+    // Convertir hex en RGB pour créer un gradient
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    // Créer une couleur plus sombre pour le gradient
+    const darkerR = Math.max(0, r - 40);
+    const darkerG = Math.max(0, g - 40);
+    const darkerB = Math.max(0, b - 40);
+    
+    return `linear-gradient(135deg, ${color} 0%, rgb(${darkerR}, ${darkerG}, ${darkerB}) 100%)`;
+  };
+
+  // Afficher un état de chargement si la formation n'est pas encore chargée
+  if (!program || !programMetadata) {
+    return (
+      <div className="skillloop-dashboard">
+        <div className="dashboard-back-button">
+          <button
+            className="back-button"
+            onClick={() => navigate("/programs")}
+            style={{ "--program-color": "#667eea" } as React.CSSProperties}
+          >
+            <BookIcon size={18} />
+            Retour aux formations
+          </button>
+        </div>
+        <div className="dashboard-loading">Chargement de la formation...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="skillloop-dashboard">
+      {/* Bouton retour */}
+      <div className="dashboard-back-button">
+        <button
+          className="back-button"
+          onClick={() => navigate("/programs")}
+          style={{ "--program-color": programColor } as React.CSSProperties}
+        >
+          <BookIcon size={18} />
+          Retour aux formations
+        </button>
+      </div>
+
       {/* HEADER */}
       <header className="dashboard-header">
-        <div className="dashboard-header-content">
-          <div className="dashboard-title-section">
+        <div
+          className="dashboard-header-content"
+          style={{
+            background: getGradient(programColor),
+            "--program-color": programColor,
+          } as React.CSSProperties}
+        >
+          <div className="dashboard-title-section-dashboard">
             <h1 className="dashboard-title">{program.title}</h1>
             <p className="dashboard-subtitle">{program.description}</p>
           </div>
@@ -173,7 +265,10 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
             <div className="progress-bar-container">
               <div
                 className="progress-bar-fill"
-                style={{ width: `${globalProgress.globalProgressPercent}%` }}
+                style={{
+                  width: `${globalProgress.globalProgressPercent}%`,
+                  backgroundColor: programColor,
+                }}
               />
             </div>
           </div>
@@ -217,7 +312,8 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
                     ? "day-in-progress"
                     : "day-not-started"
               }`}
-              onClick={() => onNavigateToDay(dayData.day)}
+              style={{ "--program-color": programColor } as React.CSSProperties}
+              onClick={() => navigate(`/programs/${programId}/day/${dayData.day}`)}
             >
               <div className="day-card-header">
                 <div className="day-card-number">
@@ -238,7 +334,10 @@ export const SkillLoopDashboard: React.FC<SkillLoopDashboardProps> = ({
                 <div className="day-progress-bar-container">
                   <div
                     className="day-progress-bar-fill"
-                    style={{ width: `${dayData.progressPercent}%` }}
+                    style={{
+                      width: `${dayData.progressPercent}%`,
+                      backgroundColor: programColor,
+                    }}
                   />
                 </div>
                 <span className="day-progress-text">
