@@ -47,16 +47,30 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
               <span className="program-stat-label">XP</span>
             </div>
           </div>
-          <div className="program-progress-bar-container">
-            <div
-              className="program-progress-bar-fill"
+          <div className="program-progress-bar-wrapper">
+            <div className="program-progress-bar-container">
+              <div
+                className="program-progress-bar-fill"
+                style={{
+                  width: `${Math.max(progress.progressPercent || 0, 0)}%`,
+                  backgroundColor: program.color || "#8b7fb8",
+                  backgroundImage: program.color
+                    ? `linear-gradient(90deg, ${program.color} 0%, ${program.color}dd 100%)`
+                    : "linear-gradient(90deg, #8b7fb8 0%, #764ba2 100%)",
+                }}
+              />
+            </div>
+            <span
+              className="program-progress-text"
               style={{
-                width: `${progress.progressPercent}%`,
-                backgroundColor: program.color,
+                background: program.color
+                  ? `linear-gradient(135deg, ${program.color} 0%, ${program.color}dd 100%)`
+                  : undefined,
               }}
-            />
+            >
+              {progress.progressPercent || 0}%
+            </span>
           </div>
-          <span className="program-progress-text">{progress.progressPercent}%</span>
         </div>
       )}
 
