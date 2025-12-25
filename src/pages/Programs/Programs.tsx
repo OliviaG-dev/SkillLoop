@@ -162,7 +162,7 @@ export const Programs: React.FC = () => {
               <ChartIcon size={32} />
             </div>
             <div>
-              <h1 className="dashboard-title">Dashboard</h1>
+              <h1 className="dashboard-title">Mes Formations</h1>
               <p className="dashboard-subtitle">
                 Vue d'ensemble de toutes vos formations
               </p>

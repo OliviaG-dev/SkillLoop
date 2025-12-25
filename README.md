@@ -19,16 +19,30 @@ L'objectif n'est pas de consommer du contenu, mais de pratiquer régulièrement,
 - **Présentation du projet** avec hero section élégante
 - **Vue des formations disponibles** avec détails (nombre de jours, modules, exercices)
 - **Aperçu des premières boucles** pour se mettre en confiance
-- **Call-to-action** vers le dashboard
+- **Call-to-action** vers le dashboard des formations
 
-### 📊 Dashboard
+### 📚 Page Formations (Programs)
+
+- **Dashboard principal** avec vue d'ensemble de toutes les formations
+- **Statistiques globales** :
+  - XP total accumulé
+  - Progression moyenne
+  - Formations complétées
+  - Formations en cours
+- **Organisation par catégories** :
+  - Formations en cours
+  - Formations complétées
+  - Nouvelles formations disponibles
+- **Navigation** vers le dashboard spécifique de chaque formation
+
+### 📊 Dashboard d'une formation
 
 - **Vue d'ensemble de tous les jours** avec grille de progression
-- **Statistiques globales** :
-  - Niveau actuel et XP total
+- **Statistiques spécifiques à la formation** :
+  - Niveau actuel et XP total pour cette formation
   - Pourcentage de progression
-  - Streak (jours consécutifs complétés)
   - Badges obtenus
+- **Thème de couleur dynamique** adapté à chaque formation
 - **Navigation rapide** vers chaque jour de formation
 - **Indicateurs visuels** pour les jours complétés, en cours et non commencés
 
@@ -59,6 +73,7 @@ Pour chaque jour de formation :
 - **React 19** - Interface utilisateur moderne
 - **TypeScript** - Typage fort pour une meilleure maintenabilité
 - **Vite** - Build tool ultra-rapide
+- **React Router** - Navigation déclarative avec gestion d'URL
 - **Zustand** - Gestion d'état légère et performante avec persistance
 - **LocalStorage** - Persistance des données localement via Zustand persist middleware
 
@@ -89,33 +104,47 @@ src/
 │   └── Icons/              # Bibliothèque d'icônes SVG
 ├── pages/                  # Pages principales
 │   ├── Home/               # Page d'accueil (landing)
-│   ├── Dashboard/          # Vue d'ensemble avec grille des jours
+│   ├── Programs/           # Dashboard principal avec liste des formations
+│   ├── Dashboard/          # Dashboard d'une formation spécifique
 │   └── LoopDay/            # Page détaillée d'un jour spécifique
+├── routes/                  # Configuration du routing
+│   └── index.tsx           # Définition des routes React Router
 ├── store/                  # Gestion d'état
-│   └── useSkillLoopStore.ts  # Store Zustand avec persistance
+│   ├── useSkillLoopStore.ts  # Store Zustand pour la progression multi-formations
+│   └── useProgramsStore.ts   # Store pour les métadonnées des formations
 ├── types/                  # Types TypeScript
 │   ├── skillloop.readonly.ts  # Types du programme de formation
 │   └── progress.ts         # Types de progression utilisateur
 ├── data/                   # Données de formation
-│   └── skillloop-ai-foundations.json  # Programme de formation
+│   ├── programs/           # Registre des formations
+│   │   └── index.ts        # Métadonnées et chargeurs des formations
+│   ├── skillloop-ai-foundations.json
+│   ├── skilloop-prompt-engineering.json
+│   ├── skillloop-ai-automation-pro.json
+│   ├── skillloop-creative-prompting.json
+│   └── skillloop-ia-productivity.json
 ├── hooks/                 # Hooks personnalisés
-├── App.tsx                # Composant principal avec routing
-└── main.tsx               # Point d'entrée
+├── App.tsx                # Composant principal avec layout
+└── main.tsx               # Point d'entrée avec RouterProvider
 ```
 
 ## 🎨 Design
 
 Interface moderne et élégante avec :
 
-- **Palette de couleurs** basée sur le logo :
-  - Violet (#8b7fb8)
-  - Bleu (#6b9bd2)
-  - Vert (#6bc7a6)
-- **Dégradés colorés** pour une identité visuelle forte
+- **Thèmes de couleurs dynamiques** : Chaque formation a sa propre couleur :
+  - Fondations IA & Intégration : Violet-bleu (#667eea)
+  - Prompt Engineering : Violet (#8b7fb8)
+  - Automatisation IA Pro : Bleu (#6b9bd2)
+  - Creative Prompting : Vert (#6bc7a6)
+  - IA & Productivité : Orange (#f59e0b)
+  - Data Storytelling : Rose (#ec4899)
+- **Dégradés colorés** adaptés au thème de chaque formation
 - **Design responsive** pour mobile et desktop
 - **Animations fluides** pour une meilleure UX
 - **Cartes vitrées** avec effets de profondeur
 - **Système de badges** visuellement attractif
+- **Indicateurs visuels** pour la progression (complété, en cours, non commencé)
 
 ## 📈 Fonctionnalités techniques
 
@@ -128,39 +157,48 @@ Interface moderne et élégante avec :
 
 ### Structure des données
 
-- **Programme de formation** : JSON structuré avec paths → modules → loops → exercises
-- **Progression utilisateur** : Stockée localement avec état de chaque exercice et loop
+- **Programmes de formation** : JSON structurés avec paths → modules → loops → exercises
+- **Registre des formations** : Système centralisé pour gérer plusieurs formations avec métadonnées (titre, description, couleur, etc.)
+- **Progression utilisateur** : Stockée localement avec état de chaque exercice et loop, organisée par formation
 - **Débrief** : Notes, insights et questions pour chaque loop
 
 ### Navigation
 
-- **Routing simple** avec état React (home, dashboard, loopday)
-- **Navigation fluide** entre les différentes vues
-- **Deep linking** vers un jour spécifique
+- **React Router** pour une navigation déclarative avec gestion d'URL
+- **Routes disponibles** :
+  - `/` : Page d'accueil
+  - `/programs` : Liste des formations (dashboard principal)
+  - `/programs/:programId` : Dashboard d'une formation spécifique
+  - `/programs/:programId/day/:dayNumber` : Page d'un jour spécifique
+- **Deep linking** : URLs partageables vers une formation ou un jour spécifique
+- **Navigation fluide** entre les différentes vues avec historique du navigateur
 
 ## 📈 Roadmap
 
 ### Version 1 (Actuelle) ✅
 
 - ✅ Page d'accueil avec présentation des formations
-- ✅ Dashboard avec vue d'ensemble de tous les jours
+- ✅ Dashboard principal avec liste des formations
+- ✅ Dashboard spécifique par formation avec thème de couleur
+- ✅ Gestion de multiples formations (6 formations disponibles)
 - ✅ Page LoopDay pour un jour spécifique
-- ✅ Système XP et niveaux
+- ✅ Système XP et niveaux par formation
 - ✅ Badges de progression
 - ✅ Section débrief (notes, insights, questions)
 - ✅ Ressources par exercice
 - ✅ Possibilité de décocher les exercices
 - ✅ Persistance locale (LocalStorage via Zustand)
-- ✅ Design moderne et responsive
+- ✅ React Router pour la navigation
+- ✅ Design moderne et responsive avec thèmes dynamiques
 
 ### Version 2 (À venir)
 
-- [ ] Gestion de multiples formations
 - [ ] Export des données (JSON, PDF)
 - [ ] Intégration avec un backend
 - [ ] Statistiques avancées et graphiques
 - [ ] Mode sombre
 - [ ] Recherche dans les ressources
+- [ ] Filtres et tri dans la liste des formations
 
 ### Version 3 (Futur)
 
@@ -176,11 +214,33 @@ Interface moderne et élégante avec :
 
 SkillLoop transforme la formation en un système d'entraînement, où la pratique régulière devient le moteur de la maîtrise. Chaque jour (loop) est conçu pour être complété en quelques heures, avec des objectifs clairs et des exercices actionnables.
 
-## 🎓 Formation actuelle
+## 🎓 Formations disponibles
 
-**Fondations IA & Intégration**
+SkillLoop propose actuellement **6 formations** couvrant différents aspects de l'IA :
 
-Un parcours complet pour construire un assistant IA fonctionnel avec streaming, backend propre et UX crédible. Le programme est structuré en plusieurs modules couvrant les fondations de l'IA, l'intégration pratique et la mise en production.
+1. **Fondations IA & Intégration** (#667eea)
+   - Construire un assistant IA fonctionnel avec streaming, backend propre et UX crédible
+   - ~5h par loop
+
+2. **Prompt Engineering & Maîtrise IA** (#8b7fb8)
+   - Apprendre à écrire des prompts clairs, puissants et réutilisables pour exploiter pleinement les IA
+   - ~2h par loop
+
+3. **Automatisation avec l'IA pour les pros** (#6b9bd2)
+   - Automatiser des tâches métiers concrètes avec l'IA, des prompts jusqu'aux workflows complets
+   - ~2h par loop
+
+4. **Prompting pour Creative Professionals** (#6bc7a6)
+   - Créer du contenu créatif cohérent, différenciant et réutilisable avec l'IA
+   - ~2h par loop
+
+5. **IA & Productivité** (#f59e0b)
+   - Optimiser votre productivité avec l'IA au quotidien
+   - ~2h par loop
+
+6. **Data Storytelling assisté par IA** (#ec4899)
+   - Transformer des données brutes en récits clairs, visuels et décisionnels grâce à l'IA
+   - ~2h par loop
 
 ## 📝 License
 

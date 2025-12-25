@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
 import type { Loop } from "../../types/skillloop.readonly";
 import {
@@ -34,6 +34,18 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
   // Récupérer la progression de la loop directement
   const loopProgress = getLoopProgress(loop.id);
 
+  // État local optimiste pour les exercices complétés
+  const [optimisticCompleted, setOptimisticCompleted] = useState<Set<string>>(
+    () => new Set(loopProgress?.completedExercises || [])
+  );
+
+  // Synchroniser l'état optimiste avec le store
+  useEffect(() => {
+    if (loopProgress?.completedExercises) {
+      setOptimisticCompleted(new Set(loopProgress.completedExercises));
+    }
+  }, [loopProgress?.completedExercises]);
+
   // Calculer l'XP restant localement
   const xpRemaining = useMemo(() => {
     const progress = loopsProgress[loop.id];
@@ -62,7 +74,8 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
     );
   });
 
-  const exercisesCompleted = loopProgress?.completedExercises.length ?? 0;
+  // Utiliser l'état optimiste pour le calcul de progression
+  const exercisesCompleted = optimisticCompleted.size;
   const exercisesTotal = loop.exercises.length;
   const progressPercent =
     exercisesTotal > 0
@@ -139,16 +152,31 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
 
       <div className="exercises-list">
         {loop.exercises.map((ex) => {
-          const isDone = loopProgress?.completedExercises.includes(ex.id);
+          const isDone = optimisticCompleted.has(ex.id);
+          const isDisabled = !isDone && loopProgress?.completed;
           return (
             <button
               key={ex.id}
-              disabled={!isDone && loopProgress?.completed}
+              disabled={isDisabled}
               className={`exercise-button ${isDone ? "exercise-done" : "exercise-active"}`}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Mise à jour optimiste immédiate
                 if (isDone) {
+                  setOptimisticCompleted((prev) => {
+                    const next = new Set(prev);
+                    next.delete(ex.id);
+                    return next;
+                  });
                   uncompleteExercise(loop.id, ex.id);
                 } else {
+                  setOptimisticCompleted((prev) => {
+                    const next = new Set(prev);
+                    next.add(ex.id);
+                    return next;
+                  });
                   completeExercise(loop.id, ex.id, ex.xpReward);
                 }
               }}

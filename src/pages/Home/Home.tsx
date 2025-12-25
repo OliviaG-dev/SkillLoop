@@ -138,12 +138,6 @@ export function Home() {
               >
                 Voir les formations
               </button>
-              <button
-                className="hero-button secondary"
-                onClick={() => navigate("/programs")}
-              >
-                Accéder au dashboard
-              </button>
             </div>
           </div>
         </div>
