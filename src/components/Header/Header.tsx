@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { ChartIcon } from "../Icons";
 import "./Header.css";
@@ -10,19 +10,23 @@ type HeaderProps = {
 export function Header({ currentView }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { programId } = useParams<{ programId?: string }>();
 
   const handleNavigateToHome = () => {
     navigate("/");
   };
 
   const handleNavigateToDashboard = () => {
-    // Si on est sur une route de formation, on reste dessus
-    // Sinon, on va à la première formation ou à la liste
-    if (location.pathname.startsWith("/programs/")) {
-      // On reste sur la route actuelle
-      return;
-    }
+    // Toujours naviguer vers la page des formations
     navigate("/programs");
+  };
+
+  const handleNavigateToProgramDashboard = () => {
+    if (programId) {
+      navigate(`/programs/${programId}`);
+    } else {
+      navigate("/programs");
+    }
   };
 
   return (
@@ -46,12 +50,21 @@ export function Header({ currentView }: HeaderProps) {
           >
             Home
           </button>
-          <button
-            className={`nav-button ${currentView === "dashboard" || currentView === "loopday" ? "active" : ""}`}
-            onClick={handleNavigateToDashboard}
-          >
-            <ChartIcon size={18} /> Dashboard
-          </button>
+          {currentView === "loopday" ? (
+            <button
+              className="nav-button active"
+              onClick={handleNavigateToProgramDashboard}
+            >
+              <ChartIcon size={18} /> Retour au dashboard
+            </button>
+          ) : (
+            <button
+              className={`nav-button ${currentView === "dashboard" ? "active" : ""}`}
+              onClick={handleNavigateToDashboard}
+            >
+              <ChartIcon size={18} /> Dashboard
+            </button>
+          )}
         </nav>
       </div>
     </header>
