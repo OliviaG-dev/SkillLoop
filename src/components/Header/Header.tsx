@@ -55,14 +55,14 @@ export function Header({ currentView }: HeaderProps) {
               className="nav-button active"
               onClick={handleNavigateToProgramDashboard}
             >
-              <ChartIcon size={18} /> Retour au dashboard
+              <ChartIcon size={18} /> Retour à la formation
             </button>
           ) : (
             <button
-              className={`nav-button ${currentView === "dashboard" ? "active" : ""}`}
+              className={`nav-button ${currentView === "programs" || currentView === "dashboard" ? "active" : ""}`}
               onClick={handleNavigateToDashboard}
             >
-              <ChartIcon size={18} /> Dashboard
+              <ChartIcon size={18} /> Mes Formations
             </button>
           )}
         </nav>

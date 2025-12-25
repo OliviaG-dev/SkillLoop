@@ -10,7 +10,6 @@ import {
   FlameIcon,
   CheckIcon,
   CalendarIcon,
-  BookIcon,
 } from "../../components/Icons";
 import "./SkillLoopDashboard.css";
 
@@ -80,11 +79,14 @@ export const SkillLoopDashboard: React.FC = () => {
 
   // Calculer loops avec useMemo pour éviter les re-renders infinis
   const loops = useMemo(
-    () => (program?.paths || []).flatMap((p) => p.modules).flatMap((m) => m.loops),
+    () =>
+      (program?.paths || []).flatMap((p) => p.modules).flatMap((m) => m.loops),
     [program]
   );
 
-  const getCurrentProgramProgress = useSkillLoopStore((s) => s.getCurrentProgramProgress);
+  const getCurrentProgramProgress = useSkillLoopStore(
+    (s) => s.getCurrentProgramProgress
+  );
   const currentProgress = getCurrentProgramProgress();
   const loopsProgress = currentProgress.loops;
 
@@ -133,7 +135,11 @@ export const SkillLoopDashboard: React.FC = () => {
   // Progression globale
   const globalProgress = useMemo(() => {
     if (!program || loops.length === 0) {
-      return { totalExercises: 0, completedExercises: 0, globalProgressPercent: 0 };
+      return {
+        totalExercises: 0,
+        completedExercises: 0,
+        globalProgressPercent: 0,
+      };
     }
 
     const totalExercises = loops.reduce(
@@ -158,12 +164,12 @@ export const SkillLoopDashboard: React.FC = () => {
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
-    
+
     // Créer une couleur plus sombre pour le gradient
     const darkerR = Math.max(0, r - 40);
     const darkerG = Math.max(0, g - 40);
     const darkerB = Math.max(0, b - 40);
-    
+
     return `linear-gradient(135deg, ${color} 0%, rgb(${darkerR}, ${darkerG}, ${darkerB}) 100%)`;
   };
 
@@ -171,16 +177,6 @@ export const SkillLoopDashboard: React.FC = () => {
   if (!program || !programMetadata) {
     return (
       <div className="skillloop-dashboard">
-        <div className="dashboard-back-button">
-          <button
-            className="back-button"
-            onClick={() => navigate("/programs")}
-            style={{ "--program-color": "#667eea" } as React.CSSProperties}
-          >
-            <BookIcon size={18} />
-            Retour aux formations
-          </button>
-        </div>
         <div className="dashboard-loading">Chargement de la formation...</div>
       </div>
     );
@@ -188,30 +184,22 @@ export const SkillLoopDashboard: React.FC = () => {
 
   return (
     <div className="skillloop-dashboard">
-      {/* Bouton retour */}
-      <div className="dashboard-back-button">
-        <button
-          className="back-button"
-          onClick={() => navigate("/programs")}
-          style={{ "--program-color": programColor } as React.CSSProperties}
-        >
-          <BookIcon size={18} />
-          Retour aux formations
-        </button>
-      </div>
-
       {/* HEADER */}
       <header className="dashboard-header">
         <div
           className="dashboard-header-content"
-          style={{
-            background: getGradient(programColor),
-            "--program-color": programColor,
-          } as React.CSSProperties}
+          style={
+            {
+              background: getGradient(programColor),
+              "--program-color": programColor,
+            } as React.CSSProperties
+          }
         >
           <div className="dashboard-title-section-dashboard">
             <h1 className="dashboard-title">{program.title}</h1>
-            <p className="dashboard-subtitle">{program.description}</p>
+            <p className="dashboard-subtitle">
+              Dashboard de formation • {program.description}
+            </p>
           </div>
 
           {/* Stats Cards */}
@@ -313,7 +301,9 @@ export const SkillLoopDashboard: React.FC = () => {
                     : "day-not-started"
               }`}
               style={{ "--program-color": programColor } as React.CSSProperties}
-              onClick={() => navigate(`/programs/${programId}/day/${dayData.day}`)}
+              onClick={() =>
+                navigate(`/programs/${programId}/day/${dayData.day}`)
+              }
             >
               <div className="day-card-header">
                 <div className="day-card-number">
