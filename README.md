@@ -24,15 +24,20 @@ L'objectif n'est pas de consommer du contenu, mais de pratiquer régulièrement,
 ### 📚 Page Formations (Programs)
 
 - **Dashboard principal** avec vue d'ensemble de toutes les formations
-- **Statistiques globales** :
-  - XP total accumulé
-  - Progression moyenne
-  - Formations complétées
-  - Formations en cours
-- **Organisation par catégories** :
-  - Formations en cours
-  - Formations complétées
-  - Nouvelles formations disponibles
+- **Statistiques globales** avec cartes visuelles :
+  - XP total accumulé (icône flamme)
+  - Progression moyenne (icône tendance)
+  - Formations finies (icône trophée)
+  - Formations en cours (icône cible)
+- **Organisation par sections** avec design cohérent :
+  - **Formations en cours** : Affichage des formations avec progression active
+  - **Nouvelles formations** : Formations disponibles mais non commencées
+  - **Formations finies** : Formations complétées à 100%
+- **Cartes de formation** avec :
+  - Alignement uniforme du footer et de la barre de progression
+  - Statistiques détaillées (jours complétés, XP gagné)
+  - Barre de progression visuelle avec pourcentage
+  - Design responsive et moderne
 - **Navigation** vers le dashboard spécifique de chaque formation
 
 ### 📊 Dashboard d'une formation
@@ -101,6 +106,7 @@ src/
 │   ├── Header/             # En-tête avec navigation
 │   ├── Footer/             # Pied de page
 │   ├── LoopOfTheDay/       # Composant principal d'une loop/jour
+│   ├── ProgramCard/        # Carte de formation avec progression
 │   └── Icons/              # Bibliothèque d'icônes SVG
 ├── pages/                  # Pages principales
 │   ├── Home/               # Page d'accueil (landing)
@@ -145,6 +151,10 @@ Interface moderne et élégante avec :
 - **Cartes vitrées** avec effets de profondeur
 - **Système de badges** visuellement attractif
 - **Indicateurs visuels** pour la progression (complété, en cours, non commencé)
+- **Header avec dégradé** pour la page Programs avec effet de profondeur
+- **Cartes statistiques** avec icônes colorées et effets hover
+- **Sections organisées** avec headers cohérents et états vides stylisés
+- **Grille de cartes** avec alignement uniforme et hauteur égale
 
 ## 📈 Fonctionnalités techniques
 
@@ -190,6 +200,11 @@ Interface moderne et élégante avec :
 - ✅ Persistance locale (LocalStorage via Zustand)
 - ✅ React Router pour la navigation
 - ✅ Design moderne et responsive avec thèmes dynamiques
+- ✅ Page Programs améliorée avec statistiques visuelles
+- ✅ Organisation par sections (en cours, nouvelles, finies)
+- ✅ Cartes de formation avec alignement uniforme
+- ✅ États vides stylisés pour chaque section
+- ✅ Icônes optimisées et modernes
 
 ### Version 2 (À venir)
 
