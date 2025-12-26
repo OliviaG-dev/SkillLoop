@@ -2,6 +2,7 @@ import React, { useMemo, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSkillLoopStore } from "../../store/useSkillLoopStore";
 import { useProgramsStore } from "../../store/useProgramsStore";
+import { getProgramMetadata } from "../../data/programs";
 import { LoopOfTheDay } from "../../components/LoopOfTheDay/LoopOfTheDay";
 import { BookIcon } from "../../components/Icons";
 import "./LoopDay.css";
@@ -17,6 +18,58 @@ export const LoopDay: React.FC = () => {
   const setCurrentProgram = useProgramsStore((s) => s.setCurrentProgram);
 
   const dayNumber = dayNumberParam ? parseInt(dayNumberParam, 10) : 0;
+
+  // Récupérer les métadonnées de la formation (couleur, etc.)
+  const programMetadata = useMemo(() => {
+    if (!programId) return null;
+    return getProgramMetadata(programId);
+  }, [programId]);
+
+  // Couleur de la formation (avec fallback)
+  const programColor = programMetadata?.color || "#667eea";
+
+  // Fonction pour générer un gradient à partir de la couleur
+  const getGradient = (color: string) => {
+    // Convertir hex en RGB pour créer un gradient
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    // Créer une couleur plus sombre pour le gradient
+    const darkerR = Math.max(0, r - 40);
+    const darkerG = Math.max(0, g - 40);
+    const darkerB = Math.max(0, b - 40);
+
+    return `linear-gradient(135deg, ${color} 0%, rgb(${darkerR}, ${darkerG}, ${darkerB}) 100%)`;
+  };
+
+  // Fonction pour convertir hex en rgba
+  const hexToRgba = (hex: string, alpha: number) => {
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  // Style avec variables CSS pour la couleur du programme
+  const pageStyle = {
+    "--program-color": programColor,
+    "--program-color-rgba-08": hexToRgba(programColor, 0.08),
+    "--program-color-rgba-15": hexToRgba(programColor, 0.15),
+    "--program-color-rgba-20": hexToRgba(programColor, 0.2),
+    "--program-color-rgba-25": hexToRgba(programColor, 0.25),
+    "--program-color-darker": (() => {
+      const hex = programColor.replace("#", "");
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      const darkerR = Math.max(0, r - 40);
+      const darkerG = Math.max(0, g - 40);
+      const darkerB = Math.max(0, b - 40);
+      return `rgb(${darkerR}, ${darkerG}, ${darkerB})`;
+    })(),
+  } as React.CSSProperties;
 
   // Charger la formation si nécessaire
   useEffect(() => {
@@ -77,15 +130,15 @@ export const LoopDay: React.FC = () => {
   }
 
   return (
-    <div className="loop-day-page">
-      <div className="loop-day-hero">
+    <div className="loop-day-page" style={pageStyle}>
+      <div className="loop-day-hero" style={{ background: getGradient(programColor) }}>
         <div className="loop-day-hero-content">
           <div className="loop-day-hero-badge">Jour {dayNumber}</div>
           <h1 className="loop-day-title">{loop.title}</h1>
           <p className="loop-day-subtitle">{loop.goal}</p>
         </div>
       </div>
-      <LoopOfTheDay loop={loop} />
+      <LoopOfTheDay loop={loop} programColor={programColor} />
 
       {/* RESSOURCES */}
       {allResources.length > 0 && (

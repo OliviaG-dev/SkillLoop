@@ -35,7 +35,7 @@
 .program-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-color: var(--color-violet, #8b7fb8);
+  border-color: var(--program-color, var(--color-violet, #8b7fb8));
 }
 
 .program-card:hover::before {

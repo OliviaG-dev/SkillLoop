@@ -1,6 +1,5 @@
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { ChartIcon } from "../Icons";
 import "./Header.css";
 
 type HeaderProps = {
@@ -55,14 +54,14 @@ export function Header({ currentView }: HeaderProps) {
               className="nav-button active"
               onClick={handleNavigateToProgramDashboard}
             >
-              <ChartIcon size={18} /> Retour à la formation
+              Retour à la formation
             </button>
           ) : (
             <button
               className={`nav-button ${currentView === "programs" || currentView === "dashboard" ? "active" : ""}`}
               onClick={handleNavigateToDashboard}
             >
-              <ChartIcon size={18} /> Mes Formations
+              Mes Formations
             </button>
           )}
         </nav>

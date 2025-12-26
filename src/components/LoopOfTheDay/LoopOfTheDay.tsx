@@ -15,9 +15,10 @@ import "./LoopOfTheDay.css";
 
 interface Props {
   loop: Loop;
+  programColor?: string;
 }
 
-export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
+export const LoopOfTheDay: React.FC<Props> = ({ loop, programColor = "#8b7fb8" }) => {
   const completeExercise = useSkillLoopStore((s) => s.completeExercise);
   const uncompleteExercise = useSkillLoopStore((s) => s.uncompleteExercise);
   const updateDebrief = useSkillLoopStore((s) => s.updateDebrief);
@@ -93,8 +94,45 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
     updateDebrief(loop.id, localDebrief);
   };
 
+  // Fonction pour générer une couleur plus sombre pour le gradient
+  const getDarkerColor = (color: string) => {
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    const darkerR = Math.max(0, r - 40);
+    const darkerG = Math.max(0, g - 40);
+    const darkerB = Math.max(0, b - 40);
+    return `rgb(${darkerR}, ${darkerG}, ${darkerB})`;
+  };
+
+  // Fonction pour convertir hex en rgba
+  const hexToRgba = (hex: string, alpha: number) => {
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const gradientColor = getDarkerColor(programColor);
+
+  // Style avec variables CSS pour la couleur du programme
+  const cardStyle = {
+    "--program-color": programColor,
+    "--program-color-darker": gradientColor,
+    "--program-color-rgba-08": hexToRgba(programColor, 0.08),
+    "--program-color-rgba-10": hexToRgba(programColor, 0.1),
+    "--program-color-rgba-15": hexToRgba(programColor, 0.15),
+    "--program-color-rgba-20": hexToRgba(programColor, 0.2),
+    "--program-color-rgba-25": hexToRgba(programColor, 0.25),
+    "--program-color-rgba-40": hexToRgba(programColor, 0.4),
+  } as React.CSSProperties;
+
   return (
-    <div className="loop-card">
+    <div 
+      className="loop-card"
+      style={cardStyle}
+    >
       <div className="loop-progress-section">
         <div className="progress-header">
           <div className="progress-header-left">
@@ -113,7 +151,7 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
 
         <div className="progress-stats">
           <div className="progress-stat-item">
-            <div className="progress-stat-icon">
+            <div className="progress-stat-icon progress-stat-icon-exercises">
               <TargetIcon size={18} />
             </div>
             <div className="progress-stat-content">
@@ -127,7 +165,7 @@ export const LoopOfTheDay: React.FC<Props> = ({ loop }) => {
           <div className="progress-stat-divider"></div>
 
           <div className="progress-stat-item">
-            <div className="progress-stat-icon">
+            <div className="progress-stat-icon progress-stat-icon-xp-total">
               <FlameIcon size={18} />
             </div>
             <div className="progress-stat-content">

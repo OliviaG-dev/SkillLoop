@@ -20,7 +20,10 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
   progress,
 }) => {
   const cardStyle = program.color
-    ? { borderTopColor: program.color }
+    ? { 
+        borderTopColor: program.color,
+        "--program-color": program.color
+      } as React.CSSProperties
     : undefined;
 
   return (
