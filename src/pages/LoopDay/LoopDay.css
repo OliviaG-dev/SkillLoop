@@ -24,7 +24,6 @@
 
 /* ==================== HERO SECTION ==================== */
 .loop-day-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 0 0 32px 32px;
   padding: 4rem 2rem;
   margin-bottom: 3rem;
@@ -217,7 +216,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #8b7fb8, #6b9bd2);
+  background: linear-gradient(90deg, var(--program-color, #8b7fb8), var(--program-color-darker, #6b9bd2));
   border-radius: 20px 20px 0 0;
 }
 
@@ -242,7 +241,7 @@
 }
 
 .loop-day-resources-title svg {
-  color: var(--color-violet);
+  color: var(--program-color, var(--color-violet, #8b7fb8));
   flex-shrink: 0;
 }
 
@@ -251,9 +250,9 @@
   font-weight: 500;
   color: var(--text-secondary);
   padding: 0.5rem 1rem;
-  background: rgba(139, 127, 184, 0.08);
+  background: var(--program-color-rgba-08, rgba(139, 127, 184, 0.08));
   border-radius: 8px;
-  border: 1px solid rgba(139, 127, 184, 0.15);
+  border: 1px solid var(--program-color-rgba-15, rgba(139, 127, 184, 0.15));
 }
 
 .loop-day-resources-grid {
@@ -284,7 +283,7 @@
   left: 0;
   right: 0;
   height: 8px;
-  background: linear-gradient(90deg, #8b7fb8, #6b9bd2);
+  background: linear-gradient(90deg, var(--program-color, #8b7fb8), var(--program-color-darker, #6b9bd2));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -294,7 +293,7 @@
 .loop-day-resource-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
-  border-color: #8b7fb8;
+  border-color: var(--program-color, #8b7fb8);
 
   background: var(--bg-white);
 }
@@ -310,17 +309,17 @@
   padding: 0.375rem 1rem;
   background: linear-gradient(
     135deg,
-    rgba(139, 127, 184, 0.15),
-    rgba(107, 155, 210, 0.15)
+    var(--program-color-rgba-15, rgba(139, 127, 184, 0.15)),
+    var(--program-color-rgba-08, rgba(107, 155, 210, 0.15))
   );
-  color: #8b7fb8;
+  color: var(--program-color, #8b7fb8);
   border-radius: 8px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   width: fit-content;
-  border: 1px solid rgba(139, 127, 184, 0.2);
+  border: 1px solid var(--program-color-rgba-20, rgba(139, 127, 184, 0.2));
 }
 
 .loop-day-resource-label {
@@ -333,7 +332,7 @@
 
 .loop-day-resource-arrow {
   font-size: 1.75rem;
-  color: #8b7fb8;
+  color: var(--program-color, #8b7fb8);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   align-self: flex-end;
   line-height: 1;
@@ -341,7 +340,7 @@
 
 .loop-day-resource-card:hover .loop-day-resource-arrow {
   transform: translateX(6px) scale(1.1);
-  color: #6b9bd2;
+  color: var(--program-color-darker, #6b9bd2);
 }
 
 /* ==================== ERROR STATE ==================== */
@@ -360,7 +359,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #8b7fb8, #6b9bd2);
+  background: linear-gradient(135deg, var(--program-color, #8b7fb8), var(--program-color-darker, #6b9bd2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

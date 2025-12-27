@@ -203,7 +203,7 @@ export const Programs: React.FC = () => {
             <div className="stat-card-value">
               {globalStats.completedPrograms}
             </div>
-            <div className="stat-card-label">Formations Complétées</div>
+            <div className="stat-card-label">Formations Finies</div>
           </div>
         </div>
 
@@ -221,15 +221,15 @@ export const Programs: React.FC = () => {
       </section>
 
       {/* Section : Formations en cours */}
-      {inProgressPrograms.length > 0 && (
-        <section className="dashboard-section">
-          <div className="section-header">
-            <div className="section-header-left">
-              <TargetIcon size={24} />
-              <h2 className="section-title">Formations en cours</h2>
-              <span className="section-count">{inProgressPrograms.length}</span>
-            </div>
+      <section className="dashboard-section">
+        <div className="section-header">
+          <div className="section-header-left">
+            <TargetIcon size={24} />
+            <h2 className="section-title">Formations en cours</h2>
+            <span className="section-count">{inProgressPrograms.length}</span>
           </div>
+        </div>
+        {inProgressPrograms.length > 0 ? (
           <div className="programs-grid">
             {inProgressPrograms.map(({ program, progress }) => (
               <ProgramCard
@@ -240,42 +240,24 @@ export const Programs: React.FC = () => {
               />
             ))}
           </div>
-        </section>
-      )}
-
-      {/* Section : Formations complétées */}
-      {completedPrograms.length > 0 && (
-        <section className="dashboard-section">
-          <div className="section-header">
-            <div className="section-header-left">
-              <TrophyIcon size={24} />
-              <h2 className="section-title">Formations complétées</h2>
-              <span className="section-count">{completedPrograms.length}</span>
-            </div>
+        ) : (
+          <div className="section-empty">
+            <TargetIcon size={32} />
+            <p>Aucune formation en cours</p>
           </div>
-          <div className="programs-grid">
-            {completedPrograms.map(({ program, progress }) => (
-              <ProgramCard
-                key={program.id}
-                program={program}
-                progress={progress}
-                onClick={() => handleProgramClick(program.id)}
-              />
-            ))}
-          </div>
-        </section>
-      )}
+        )}
+      </section>
 
       {/* Section : Nouvelles formations */}
-      {notStartedPrograms.length > 0 && (
-        <section className="dashboard-section">
-          <div className="section-header">
-            <div className="section-header-left">
-              <SparkleIcon size={24} />
-              <h2 className="section-title">Nouvelles formations</h2>
-              <span className="section-count">{notStartedPrograms.length}</span>
-            </div>
+      <section className="dashboard-section">
+        <div className="section-header">
+          <div className="section-header-left">
+            <SparkleIcon size={24} />
+            <h2 className="section-title">Nouvelles formations</h2>
+            <span className="section-count">{notStartedPrograms.length}</span>
           </div>
+        </div>
+        {notStartedPrograms.length > 0 ? (
           <div className="programs-grid">
             {notStartedPrograms.map(({ program, progress }) => (
               <ProgramCard
@@ -286,8 +268,41 @@ export const Programs: React.FC = () => {
               />
             ))}
           </div>
-        </section>
-      )}
+        ) : (
+          <div className="section-empty">
+            <SparkleIcon size={32} />
+            <p>Aucune nouvelle formation disponible</p>
+          </div>
+        )}
+      </section>
+
+      {/* Section : Formations finies */}
+      <section className="dashboard-section">
+        <div className="section-header">
+          <div className="section-header-left">
+            <TrophyIcon size={24} />
+            <h2 className="section-title">Formations finies</h2>
+            <span className="section-count">{completedPrograms.length}</span>
+          </div>
+        </div>
+        {completedPrograms.length > 0 ? (
+          <div className="programs-grid">
+            {completedPrograms.map(({ program, progress }) => (
+              <ProgramCard
+                key={program.id}
+                program={program}
+                progress={progress}
+                onClick={() => handleProgramClick(program.id)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="section-empty">
+            <TrophyIcon size={32} />
+            <p>Aucune formation complétée</p>
+          </div>
+        )}
+      </section>
 
       {/* État vide */}
       {programs.length === 0 && (
