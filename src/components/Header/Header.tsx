@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./Header.css";
@@ -7,17 +8,20 @@ type HeaderProps = {
 };
 
 export function Header({ currentView }: HeaderProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { programId } = useParams<{ programId?: string }>();
 
   const handleNavigateToHome = () => {
     navigate("/");
+    setIsMenuOpen(false);
   };
 
   const handleNavigateToDashboard = () => {
     // Toujours naviguer vers la page des formations
     navigate("/programs");
+    setIsMenuOpen(false);
   };
 
   const handleNavigateToProgramDashboard = () => {
@@ -26,6 +30,11 @@ export function Header({ currentView }: HeaderProps) {
     } else {
       navigate("/programs");
     }
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -42,7 +51,18 @@ export function Header({ currentView }: HeaderProps) {
           <h1 className="app-title">SkillLoop</h1>
           <p className="app-tagline">Apprendre, pratiquer, progresser</p>
         </div>
-        <nav className="app-nav">
+        <button 
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span className={`hamburger ${isMenuOpen ? "open" : ""}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav className={`app-nav ${isMenuOpen ? "open" : ""}`}>
           <button
             className={`nav-button ${currentView === "home" ? "active" : ""}`}
             onClick={handleNavigateToHome}
