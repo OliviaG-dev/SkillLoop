@@ -46,11 +46,6 @@
   flex-shrink: 0;
 }
 
-.header-text {
-  display: flex;
-  flex-direction: column;
-}
-
 .app-title {
   font-size: 2rem;
   font-weight: 700;
@@ -134,19 +129,6 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
-}
-
-.nav-button svg {
-  color: currentColor;
-  flex-shrink: 0;
-}
-
-.nav-button:hover svg {
-  color: #6366f1;
-}
-
-.nav-button.active svg {
-  color: white;
 }
 
 .nav-button:hover {

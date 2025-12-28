@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./Header.css";
 
@@ -10,7 +10,6 @@ type HeaderProps = {
 export function Header({ currentView }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
   const { programId } = useParams<{ programId?: string }>();
 
   const handleNavigateToHome = () => {

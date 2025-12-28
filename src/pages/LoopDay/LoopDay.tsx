@@ -90,10 +90,11 @@ export const LoopDay: React.FC = () => {
 
   // Trouver la loop correspondant au jour
   const loop = useMemo(() => {
+    if (!program) return null;
     const allLoops = program.paths
       .flatMap((p) => p.modules)
       .flatMap((m) => m.loops);
-    return allLoops.find((l) => l.day === dayNumber);
+    return allLoops.find((l) => l.day === dayNumber) ?? null;
   }, [program, dayNumber]);
 
   // Récupérer toutes les ressources uniques
