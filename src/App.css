@@ -6,16 +6,6 @@
   background-attachment: fixed;
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 1.25rem;
-  color: white;
-}
-
-
 .app-main {
   flex: 1;
   padding: 0 1rem 2rem 1rem;
