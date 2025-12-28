@@ -1,7 +1,6 @@
 import { useSkillLoopStore } from '../store/useSkillLoopStore';
 import {
   useLoop,
-  useLoopProgress,
   useExerciseProgress,
   useLoopStats,
   useProgramStats,
@@ -13,31 +12,35 @@ import {
 export function useSkillLoop() {
   const store = useSkillLoopStore();
 
-  // Créer un objet progress pour compatibilité avec les selectors
-  const progress = {
-    totalXp: store.totalXp,
-    loops: store.loops,
-  };
+  // Récupérer la progression actuelle
+  const currentProgress = store.getCurrentProgramProgress();
 
   return {
     // Store de base
     ...store,
-    progress, // Pour compatibilité avec les selectors
+    progress: currentProgress, // Pour compatibilité avec les selectors
 
     // Selectors optimisés
-    getLoop: (loopId: string) => useLoop(store.program, loopId),
+    getLoop: (loopId: string) => {
+      if (!store.program) return null;
+      return useLoop(store.program, loopId);
+    },
     getLoopProgress: (loopId: string) => store.getLoopProgress(loopId),
     getExerciseProgress: (loopId: string, exerciseId: string) => {
-      const loopProgress = store.getLoopProgress(loopId);
+      const loopProgress = store.getLoopProgress(loopId) ?? null;
       return useExerciseProgress(loopProgress, exerciseId);
     },
     getLoopStats: (loopId: string) => {
+      if (!store.program) return null;
       const loop = useLoop(store.program, loopId);
-      const loopProgress = store.getLoopProgress(loopId);
+      const loopProgress = store.getLoopProgress(loopId) ?? null;
       if (!loop) return null;
       return useLoopStats(loop, loopProgress);
     },
-    getProgramStats: () => useProgramStats(store.program, progress),
+    getProgramStats: () => {
+      if (!store.program) return null;
+      return useProgramStats(store.program, currentProgress);
+    },
   };
 }
 
@@ -46,8 +49,8 @@ export function useSkillLoop() {
  */
 export function useLoopData(loopId: string) {
   const store = useSkillLoopStore();
-  const loop = useLoop(store.program, loopId);
-  const loopProgress = store.getLoopProgress(loopId);
+  const loop = store.program ? useLoop(store.program, loopId) : null;
+  const loopProgress = store.getLoopProgress(loopId) ?? null;
   const stats = loop ? useLoopStats(loop, loopProgress) : null;
 
   return {
@@ -55,7 +58,7 @@ export function useLoopData(loopId: string) {
     loopProgress,
     stats,
     isExerciseCompleted: (exerciseId: string) => {
-      const progress = store.getLoopProgress(loopId);
+      const progress = store.getLoopProgress(loopId) ?? null;
       return useExerciseProgress(progress, exerciseId);
     },
     completeExercise: (exerciseId: string, xp: number) =>

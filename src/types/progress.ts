@@ -31,3 +31,31 @@ export interface UserProgress {
   totalXp: number;
   loops: Record<string, LoopProgress>;
 }
+
+// =======================
+// Types pour useTrainingData
+// =======================
+
+export interface TrainingDay {
+  id: string;
+  day: number;
+  title: string;
+  date: string;
+  tasks: Array<{
+    id: string;
+    label: string;
+    done: boolean;
+  }>;
+  notes: string;
+  insights: string;
+  questions: string;
+  completed: boolean;
+}
+
+export interface ProgressStats {
+  totalDays: number;
+  completedDays: number;
+  currentStreak: number;
+  longestStreak: number;
+  completionPercentage: number;
+}
